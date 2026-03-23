@@ -1,0 +1,12 @@
+{
+  "superpowers.enabled": true,
+  "superpowers.agent": "antigravity",
+  "github.copilot.enable": {
+    "*": true
+  },
+  "cursor.rules.enabled": true,
+  "files.associations": {
+    "SKILL.md": "markdown",
+    "*.rule": "markdown"
+  }
+}
