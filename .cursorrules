@@ -1,0 +1,73 @@
+# Unified AI Agent Rules for Cursor IDE
+# Merged from: everything-claude-code, superpowers, awesome-copilot
+
+## Core Principles
+
+1. **Plan Before Execute** — Plan complex features before writing code
+2. **Test-Driven** — Write tests before implementation, 80%+ coverage
+3. **Security-First** — Never compromise on security; validate all inputs
+4. **Immutability** — Create new objects, never mutate existing ones
+5. **Agent-First** — Delegate to specialized agents for domain tasks
+
+## Coding Standards
+
+- Prefer immutable updates over in-place mutation
+- Keep functions small (<50 lines) and files focused (<800 lines)
+- Validate user input at boundaries
+- Never hardcode secrets (API keys, passwords, tokens)
+- Fail loudly with clear error messages
+- Use conventional commits: feat, fix, refactor, docs, test, chore
+
+## Security Checklist (Before ANY commit)
+
+- No hardcoded API keys, passwords, or tokens
+- All external input validated
+- Parameterized queries for database writes
+- Sanitized HTML output where applicable
+- Auth/authz checked for sensitive paths
+- Error messages scrubbed of sensitive internals
+
+## Testing Requirements
+
+- Minimum coverage: 80%
+- TDD workflow: RED → GREEN → REFACTOR
+- Unit tests for individual functions
+- Integration tests for API endpoints
+- E2E tests for critical user flows
+
+## Development Workflow
+
+1. Plan — Break down complex features into phases
+2. TDD — Write tests first, then implementation
+3. Review — Code review after writing/modifying code
+4. Security — Security review before shipping
+5. Commit — Conventional commits format
+
+## File Organization
+
+- Many small files over few large ones
+- 200-400 lines typical, 800 max
+- Organize by feature/domain, not by type
+- High cohesion, low coupling
+
+## Error Handling
+
+- Handle errors at every level
+- User-friendly messages in UI code
+- Log detailed context server-side
+- Never silently swallow errors
+
+## Code Quality
+
+- No deep nesting (>4 levels)
+- Proper error handling, no hardcoded values
+- Readable, well-named identifiers
+- Input validation at system boundaries
+- Schema-based validation preferred
+
+## Architecture Patterns
+
+- Repository pattern for data access
+- Consistent API response envelope (success, data, error, pagination)
+- Feature-based folder structure
+- Clear separation of concerns
