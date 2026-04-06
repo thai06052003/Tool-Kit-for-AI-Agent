@@ -1,34 +1,13 @@
----
-inclusion: auto
-description: Testing requirements including 80% coverage, TDD workflow, and test types.
----
+# Testing Requirements — Kiro Steering
 
-# Testing Requirements
+> **MANDATORY:** Follow the testing standards and TDD workflow defined in the Master Rules:
+> 👉 [Master Rules: .agent/rules/GEMINI.md](file:///c:/Users/PC/Desktop/Tool-Kit-for-AI-Agent/.agent/rules/GEMINI.md)
 
-## Minimum Test Coverage: 80%
+## Core Testing Standard
 
-Test Types (ALL required):
-1. **Unit Tests** - Individual functions, utilities, components
-2. **Integration Tests** - API endpoints, database operations
-3. **E2E Tests** - Critical user flows (framework chosen per language)
+1. **Minimum Coverage**: 80% mandatory for all new code.
+2. **Test Types**: Unit, Integration, and E2E (Playwright) are ALL required.
+3. **TDD Workflow**: RED (fail) → GREEN (pass) → REFACTOR (improve).
+4. **Automation**: Run `test_runner.py` to verify compliance.
 
-## Test-Driven Development
-
-MANDATORY workflow:
-1. Write test first (RED)
-2. Run test - it should FAIL
-3. Write minimal implementation (GREEN)
-4. Run test - it should PASS
-5. Refactor (IMPROVE)
-6. Verify coverage (80%+)
-
-## Troubleshooting Test Failures
-
-1. Use **tdd-guide** agent
-2. Check test isolation
-3. Verify mocks are correct
-4. Fix implementation, not tests (unless tests are wrong)
-
-## Agent Support
-
-- **tdd-guide** - Use PROACTIVELY for new features, enforces write-tests-first
+Refer to the Master Rules for the full TDD protocol and troubleshooting.

@@ -1,34 +1,13 @@
----
-inclusion: auto
-description: Development workflow guidelines for planning, TDD, code review, and commit pipeline
----
+# Development Workflow — Kiro Steering
 
-# Development Workflow
+> **MANDATORY:** Follow the **Orchestrator-First** protocol and **Development Workflow** defined in the Master Rules:
+> 👉 [Master Rules: .agent/rules/GEMINI.md](file:///c:/Users/PC/Desktop/Tool-Kit-for-AI-Agent/.agent/rules/GEMINI.md)
 
-> This rule extends the git workflow rule with the full feature development process that happens before git operations.
+## Implementation Pipeline
 
-The Feature Implementation Workflow describes the development pipeline: planning, TDD, code review, and then committing to git.
+1. **Plan First**: Use `project-planner` and follow the 4-Phase methodology.
+2. **TDD Approach**: Write tests first (RED), implement (GREEN), refactor (IMPROVE).
+3. **Code Review**: Mandatory review after implementation.
+4. **Final Checklist**: Trigger `checklist.py` before completion.
 
-## Feature Implementation Workflow
-
-1. **Plan First**
-   - Use **planner** agent to create implementation plan
-   - Identify dependencies and risks
-   - Break down into phases
-
-2. **TDD Approach**
-   - Use **tdd-guide** agent
-   - Write tests first (RED)
-   - Implement to pass tests (GREEN)
-   - Refactor (IMPROVE)
-   - Verify 80%+ coverage
-
-3. **Code Review**
-   - Use **code-reviewer** agent immediately after writing code
-   - Address CRITICAL and HIGH issues
-   - Fix MEDIUM issues when possible
-
-4. **Commit & Push**
-   - Detailed commit messages
-   - Follow conventional commits format
-   - See the git workflow rule for commit message format and PR process
+Refer to the Master Rules for the full protocol details.

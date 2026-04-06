@@ -1,34 +1,13 @@
----
-inclusion: auto
-description: Security best practices including mandatory checks, secret management, and security response protocol.
----
+# Security Guidelines — Kiro Steering
 
-# Security Guidelines
+> **MANDATORY:** Adhere to the security standards and protocols defined in the Master Rules:
+> 👉 [Master Rules: .agent/rules/GEMINI.md](file:///c:/Users/PC/Desktop/Tool-Kit-for-AI-Agent/.agent/rules/GEMINI.md)
 
-## Mandatory Security Checks
+## Core Security Rules
 
-Before ANY commit:
-- [ ] No hardcoded secrets (API keys, passwords, tokens)
-- [ ] All user inputs validated
-- [ ] SQL injection prevention (parameterized queries)
-- [ ] XSS prevention (sanitized HTML)
-- [ ] CSRF protection enabled
-- [ ] Authentication/authorization verified
-- [ ] Rate limiting on all endpoints
-- [ ] Error messages don't leak sensitive data
+1. **No Hardcoded Secrets**: Use environment variables or secret managers.
+2. **Input Validation**: Validate all external data at boundaries.
+3. **Security-First**: Parameterized queries, sanitizing HTML, CSRF protection.
+4. **Verification**: Run `security_scan.py` and `dependency_analyzer.py` before deployment.
 
-## Secret Management
-
-- NEVER hardcode secrets in source code
-- ALWAYS use environment variables or a secret manager
-- Validate that required secrets are present at startup
-- Rotate any secrets that may have been exposed
-
-## Security Response Protocol
-
-If security issue found:
-1. STOP immediately
-2. Use **security-reviewer** agent
-3. Fix CRITICAL issues before continuing
-4. Rotate any exposed secrets
-5. Review entire codebase for similar issues
+Refer to the Master Rules for the full security response protocol.

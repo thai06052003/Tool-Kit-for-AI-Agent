@@ -1,53 +1,13 @@
----
-inclusion: auto
-description: Core coding style rules including immutability, file organization, error handling, and code quality standards.
----
+# Coding Style — Kiro Steering
 
-# Coding Style
+> **MANDATORY:** Follow the "Clean Code (Global Mandatory)" and "Coding Standards" defined in the Master Rules:
+> 👉 [Master Rules: .agent/rules/GEMINI.md](file:///c:/Users/PC/Desktop/Tool-Kit-for-AI-Agent/.agent/rules/GEMINI.md)
 
-## Immutability (CRITICAL)
+## Core Principles
 
-ALWAYS create new objects, NEVER mutate existing ones:
+1. **Immutability**: ALWAYS create new objects, NEVER mutate existing ones.
+2. **File Organization**: Small, focused files (<800 lines). Organize by feature/domain.
+3. **Error Handling**: Explicit handling at every level. Never swallow errors.
+4. **Input Validation**: Mandatory validation at system boundaries.
 
-```
-// Pseudocode
-WRONG:  modify(original, field, value) → changes original in-place
-CORRECT: update(original, field, value) → returns new copy with change
-```
-
-Rationale: Immutable data prevents hidden side effects, makes debugging easier, and enables safe concurrency.
-
-## File Organization
-
-MANY SMALL FILES > FEW LARGE FILES:
-- High cohesion, low coupling
-- 200-400 lines typical, 800 max
-- Extract utilities from large modules
-- Organize by feature/domain, not by type
-
-## Error Handling
-
-ALWAYS handle errors comprehensively:
-- Handle errors explicitly at every level
-- Provide user-friendly error messages in UI-facing code
-- Log detailed error context on the server side
-- Never silently swallow errors
-
-## Input Validation
-
-ALWAYS validate at system boundaries:
-- Validate all user input before processing
-- Use schema-based validation where available
-- Fail fast with clear error messages
-- Never trust external data (API responses, user input, file content)
-
-## Code Quality Checklist
-
-Before marking work complete:
-- [ ] Code is readable and well-named
-- [ ] Functions are small (<50 lines)
-- [ ] Files are focused (<800 lines)
-- [ ] No deep nesting (>4 levels)
-- [ ] Proper error handling
-- [ ] No hardcoded values (use constants or config)
-- [ ] No mutation (immutable patterns used)
+Refer to the Master Rules for detailed specifications and the **Socratic Gate** protocol.
