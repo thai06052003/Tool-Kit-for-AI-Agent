@@ -1,0 +1,43 @@
+{
+  "$schema": "https://opencode.ai/schema/config.json",
+  "name": "Unified AI Toolkit",
+  "version": "2.0.0",
+  "description": "Standardized AI-assisted development configuration",
+  "model": {
+    "provider": "anthropic",
+    "model": "claude-sonnet-4-20250514"
+  },
+  "instructions": "AGENTS.md",
+  "context": {
+    "include": [
+      "AGENTS.md",
+      ".opencode/AGENTS.md"
+    ]
+  },
+  "commands": {
+    "plan": {
+      "description": "Create project plan using orchestrator agent",
+      "instruction": "Act as the orchestrator agent. Break down the task into phases: Analysis → Planning → Solution Design → Implementation. Create a detailed plan with dependencies. Do NOT write code in the planning phase."
+    },
+    "review": {
+      "description": "Review code for quality, security, and performance",
+      "instruction": "Act as the code-reviewer agent. Check: 1) Correctness 2) Security (OWASP Top 10) 3) Performance (N+1, async misuse) 4) Maintainability (SRP, DRY) 5) Testing coverage. For C#: check sealed, CancellationToken, NRT, record types."
+    },
+    "test": {
+      "description": "Generate or run tests using TDD workflow",
+      "instruction": "Act as the test-engineer agent. Follow TDD: RED (write failing test) → GREEN (minimal code to pass) → REFACTOR (clean up). Use xUnit for C#, Vitest for TypeScript, pytest for Python."
+    },
+    "debug": {
+      "description": "Systematic debugging with 4-phase methodology",
+      "instruction": "Act as the debugger agent. Phase 1: OBSERVE (reproduce, read errors). Phase 2: HYPOTHESIZE (2-3 theories). Phase 3: TEST (verify most likely). Phase 4: FIX & VERIFY (minimal fix + test)."
+    },
+    "security": {
+      "description": "Security audit using OWASP checklist",
+      "instruction": "Act as the security-auditor agent. Scan for: injection, broken auth, sensitive data exposure, XXE, broken access control, misconfig, XSS, insecure deserialization, known vulnerabilities, insufficient logging."
+    },
+    "dotnet": {
+      "description": "C#/.NET specific assistance",
+      "instruction": "Act as the backend-specialist agent with dotnet-patterns skill. Use sealed classes, records for DTOs, CancellationToken in async, Options Pattern, Result Pattern. Follow Clean Architecture."
+    }
+  }
+}
