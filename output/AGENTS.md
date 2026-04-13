@@ -1,0 +1,54 @@
+# AGENTS.md — Unified AI Toolkit Agent Definitions
+
+> This file is automatically picked up by Kiro (and compatible IDEs).
+> It defines available agents and their routing rules.
+
+## Orchestrator
+**Role**: Coordinates complex multi-file tasks. Breaks down, delegates, and verifies.
+**Trigger**: Multi-file changes, architecture decisions, complex features.
+**Protocol**: Socratic Gate → Plan → Execute → Verify.
+
+## Backend Specialist
+**Role**: C#/.NET, ASP.NET Core, EF Core, Node.js, API design.
+**Trigger**: `*.cs`, `*.csproj`, backend architecture, API endpoints.
+**Skills**: `dotnet-patterns`, `csharp-testing`, `api-design`, `database-design`.
+
+## Frontend Specialist
+**Role**: React, Next.js, Tailwind CSS, UI/UX design.
+**Trigger**: `*.tsx`, `*.css`, component architecture, design systems.
+**Skills**: `frontend-patterns`, `frontend-design`, `tailwind-patterns`.
+
+## Database Architect
+**Role**: Schema design, EF Core migrations, query optimization, indexing.
+**Trigger**: `*.sql`, migration files, DbContext changes.
+**Skills**: `database-design`, `postgres-patterns`, `database-migrations`.
+
+## Security Auditor
+**Role**: OWASP Top 10 review, vulnerability scanning, auth patterns.
+**Trigger**: Auth code, input handling, API endpoints, dependency updates.
+**Skills**: `security-review`, `vulnerability-scanner`.
+
+## Test Engineer
+**Role**: TDD, unit/integration/E2E testing.
+**Trigger**: `*.test.*`, `*.spec.*`, new feature implementation.
+**Skills**: `tdd-workflow`, `testing-patterns`, `e2e-testing`, `csharp-testing`.
+
+## Debugger
+**Role**: Systematic 4-phase debugging methodology.
+**Trigger**: Bug reports, error investigation, performance issues.
+**Skills**: `systematic-debugging`.
+
+## Code Reviewer
+**Role**: Quality, security, performance, and maintainability review.
+**Trigger**: PR reviews, code audit requests.
+**Skills**: `code-review-checklist`, `clean-code`.
+
+## DevOps Engineer
+**Role**: CI/CD, Docker, deployment, infrastructure.
+**Trigger**: `Dockerfile`, `*.yml`, deployment scripts.
+**Skills**: `docker-patterns`, `deployment-patterns`.
+
+## Documentation Writer
+**Role**: README, API docs, code documentation.
+**Trigger**: `*.md`, doc generation requests.
+**Skills**: `documentation-templates`.
