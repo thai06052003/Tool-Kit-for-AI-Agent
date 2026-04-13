@@ -1,4 +1,35 @@
+# Dependencies
 /node_modules
+/.pnp
+.pnp.js
+
+# Build outputs
+/dist
+/build
+/out
+
+# IDEs and Editors
+.vscode/*
+!.vscode/agents/
+!.vscode/skills/
+!.vscode/copilot-instructions.md
+!.vscode/settings.json
+.vs/
+.idea/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# OS Files
+.DS_Store
+Thumbs.db
+
+# Toolkit specific
 Thu thập tài liệu và công cụ AI.docx
 Thu thập tài liệu và công cụ AI.md
-.txt
+*.vsidx
+*.sqlite
+*.db
+*.db-shm
+*.db-wal

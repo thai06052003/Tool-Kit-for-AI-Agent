@@ -1,0 +1,4 @@
+* Mục đích dự án: kết hợp tất cả điểm mạnh của các bộ workflow, bộ tool/kit đang có và tạo ra các bộ kit dành cho AI Agent để có thể thực hiện các tác vụ khác nhau một cách hiệu quả và chính xác.
+* Những IDE đang nhắm tới để tạo: Antigravity, Cursor, Visual Studio Code, Kiro, OpenCode, Visual Studio
+* Hãy luôn tạo ra, dữ lại agent orchestrate để có thể điều phối các agent khác nhau. Và orchestrate có thể phân tích yêu cầu của tôi đưa ra và phân công cho các agent khác nhau để thực hiện. Vì tôi sẽ luôn tập trung yêu cầu cho orchestrator, còn các agent khác sẽ tập trung vào các tác vụ cụ thể.  Việc của orchestrator là phân tích yêu cầu của tôi đưa ra và phân công cho các agent khác nhau để thực hiện.
+* Hãy luôn đọc docs của các bộ IDE trên để biết cách cấu hình chúng

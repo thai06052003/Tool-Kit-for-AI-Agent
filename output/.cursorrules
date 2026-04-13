@@ -60,6 +60,17 @@ When working with C#/.NET:
 - Use `sealed` classes by default unless inheritance is designed
 - Always use `IAsyncDisposable` with `await using`
 
+## 🧠 Self-Learning Protocol (Hermes-inspired)
+After completing a complex task (5+ steps), create a new skill:
+1. Identify reusable knowledge from the completed task
+2. Check if similar skill exists → update or create new
+3. Write `SKILL.md` with YAML frontmatter + procedure + pitfalls
+4. Save to `.cursor/skills/<skill-name>/SKILL.md`
+5. Announce: `💡 Created skill: <name>`
+
+Read `self-learning-loop` and `skill-evolution` skills for detailed protocols.
+The `skill-curator` agent manages skill lifecycle.
+
 ## Code Style
 - **Format**: Follow language-specific formatters (dotnet format, prettier, black, gofmt)
 - **Comments**: English only. Explain WHY, not WHAT.

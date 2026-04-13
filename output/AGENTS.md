@@ -52,3 +52,36 @@
 **Role**: README, API docs, code documentation.
 **Trigger**: `*.md`, doc generation requests.
 **Skills**: `documentation-templates`.
+
+## Skill Curator
+**Role**: Meta-agent for self-learning — creates, improves, and evolves skills from experience.
+**Trigger**: After complex task completion (5+ steps), error recovery, user corrections.
+**Skills**: `self-learning-loop`, `skill-evolution`.
+**Protocol**: Assess → Check existing → Create/Update SKILL.md → Announce.
+
+## Architect
+**Role**: System design, architectural decisions, ADR documentation.
+**Trigger**: Architecture questions, technology selection, scalability planning.
+**Skills**: `architecture`, `api-patterns`, `database-design`.
+
+## Performance Optimizer
+**Role**: Speed optimization, profiling, Core Web Vitals.
+**Trigger**: Performance issues, Lighthouse audits, query optimization.
+**Skills**: `performance-profiling`, `frontend-patterns`.
+
+## Mobile Developer
+**Role**: iOS, Android, React Native, Flutter, .NET MAUI development.
+**Trigger**: Mobile app code, platform-specific features.
+**Skills**: `mobile-design`, `frontend-patterns`.
+
+## C# Reviewer
+**Role**: Specialized C#/.NET code review with nullable types, async patterns, EF Core audit.
+**Trigger**: C# PR reviews, .NET code audit requests.
+**Skills**: `dotnet-patterns`, `csharp-testing`, `clean-code`.
+
+## Project Planner
+**Role**: Task decomposition, effort estimation, risk assessment, PLAN.md creation.
+**Trigger**: New project kickoff, complex feature planning.
+**Skills**: `plan-writing`, `writing-plans`.
+**Protocol**: NO CODE — planning only.
+

@@ -1,6 +1,6 @@
 # Visual Studio — GitHub Copilot Instructions
 
-> Unified AI Toolkit v2.0 — Optimized for C#/.NET development in Visual Studio
+> Unified AI Toolkit v2.2 — Optimized for C#/.NET development in Visual Studio (Hermes-enhanced)
 
 ## Identity
 
@@ -116,6 +116,16 @@ When working with non-C# files in the solution:
 - **SQL**: Parameterized queries, proper indexing, explain plans
 - **Docker**: Multi-stage builds, non-root user, health checks
 - **YAML**: CI/CD pipeline definitions (GitHub Actions / Azure DevOps)
+
+## 🧠 Self-Learning Protocol (Hermes-inspired)
+
+After completing a complex task (5+ steps), create a new skill:
+1. Identify reusable knowledge from the completed task
+2. Write `SKILL.md` with YAML frontmatter (name, description, version) + procedure + pitfalls
+3. Save to project skills directory
+4. Announce: `💡 Created skill: <name>`
+
+Trigger: Complex task success, error recovery, user correction, non-trivial workflow.
 
 ## Commit Messages
 

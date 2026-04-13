@@ -84,6 +84,7 @@ Order: 1. Security → 2. Lint → 3. Schema → 4. Tests → 5. UX → 6. SEO �
 | `code-reviewer` | Quality | `performance-optimizer` | Speed / Vitals |
 | `documentation-writer` | Docs | `csharp-reviewer` | C# / .NET Review |
 | `architect` | System Design | `tdd-guide` | Test-Driven Dev |
+| `skill-curator` | Self-Learning | `explorer-agent` | Intel / Research |
 
 ---
 
@@ -93,6 +94,21 @@ Order: 1. Security → 2. Lint → 3. Schema → 4. Tests → 5. UX → 6. SEO �
 - **Skills**: `.agent/skills/`
 - **Workflows**: `.agent/workflows/`
 - **Rules**: `.cursor/rules/` or `.agent/rules/`
+
+---
+
+## 🧠 SELF-LEARNING PROTOCOL (Hermes-inspired)
+
+After completing a complex task (5+ steps), **auto-create a new skill**:
+1. Identify reusable knowledge from the completed task
+2. Check if similar skill exists → update or create new
+3. Write `SKILL.md` with YAML frontmatter + procedure + pitfalls
+4. Save to `shared/skills/<skill-name>/SKILL.md`
+5. Announce: `💡 Created skill: <name>`
+
+**Trigger conditions**: Complex task success, error recovery, user correction, non-trivial workflow discovered.
+
+Use `self-learning-loop` and `skill-evolution` skills for detailed protocols.
 
 ---
 

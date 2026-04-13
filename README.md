@@ -1,125 +1,354 @@
-# 🧰 Unified AI Agent Toolkit (Bộ Công Cụ AI Agent Hợp Nhất)
+# 🧰 Unified AI Agent Toolkit v2.2
 
-> **Mô tả ngắn gọn:** Giải pháp "Drop-in" tích hợp AI Agent cho 6 IDE phổ biến nhất (Antigravity, Cursor, VS Code, Kiro, OpenCode, Visual Studio). Hợp nhất tinh hoa từ 5 bộ toolkit hàng đầu thế giới để mang lại trải nghiệm lập trình tự động hóa tối thượng.
+> **Bộ công cụ AI Agent hợp nhất** — Drop-in configs cho 6 IDE.
+> Copy folder tương ứng vào dự án → AI tự động hoạt động, tự học, và ngày càng thông minh hơn.
 
 ---
 
 ## 📖 Mục lục
 
-1. [Báo cáo Tổng kết](#-báo-cáo-tổng-kết)
-2. [Kết quả đạt được](#-kết-quả-đạt-được)
-3. [Cấu trúc Thư mục](#-cấu-trúc-thư-mục)
-4. [Hướng dẫn sử dụng theo từng IDE](#-hướng-dẫn-sử-dụng-theo-từng-ide)
-5. [Điểm mạnh & Điểm yếu](#-điểm-mạnh--điểm-yếu)
-6. [Ví dụ thực tế](#-ví-dụ-thực-tế)
-7. [Kế hoạch Nâng cấp (PLAN_UPDATE.md)](#-kế-hoạch-nâng-cấp-plan_updatemd)
+1. [Tổng quan](#-tổng-quan)
+2. [Nguồn gốc & Phương pháp](#-nguồn-gốc--phương-pháp)
+3. [Cấu trúc thư mục](#-cấu-trúc-thư-mục)
+4. [Thống kê chi tiết](#-thống-kê-chi-tiết)
+5. [Hướng dẫn sử dụng từng IDE](#-hướng-dẫn-sử-dụng-từng-ide)
+6. [Self-Learning Protocol](#-self-learning-protocol-hermes-inspired)
+7. [Shared — Single Source of Truth](#-shared--single-source-of-truth)
+8. [Điểm mạnh & Hạn chế](#-điểm-mạnh--hạn-chế)
+9. [Ví dụ thực tế](#-ví-dụ-thực-tế)
+10. [Kế hoạch nâng cấp](#-kế-hoạch-nâng-cấp)
 
 ---
 
-## 📑 Báo cáo Tổng kết
+## 🎯 Tổng quan
 
-Dự án đã hoàn thành việc hợp nhất và chuẩn hóa 5 nguồn toolkit AI Agent sau đây:
-- **antigravity-kit**: Nền tảng cho Antigravity IDE.
-- **everything-claude-code (ECC)**: Đa nền tảng và bộ kỹ năng Claude.
-- **superpowers**: Quy trình TDD, Planning và Git nâng cao.
-- **awesome-copilot**: Tập hợp 182+ agents và 173+ instructions cho Copilot.
-- **antigravity-awesome-skills**: Thư viện 1293+ kỹ năng cộng đồng.
+Dự án này hợp nhất **6 bộ AI toolkit** thành **1 hệ thống cấu hình chuẩn hóa** cho **6 IDE**, với kiến trúc **Single Source of Truth** (SSoT). Mọi IDE đều chia sẻ cùng kiến thức nhưng được adapt sang đúng format native.
 
-Chúng tôi đã thiết kế lại toàn bộ cấu trúc để tương thích với định dạng riêng biệt của từng IDE, đồng thời tích hợp giao thức **Orchestrator-First** (Điều phối viên trung tâm) xuyên suốt mọi nền tảng.
-
----
-
-## ✅ Kết quả đạt được
-
-Hệ thống đã được phân loại vào dự án `output/` với các folder cấu hình sẵn sàng sử dụng:
-
-| IDE | Thư mục | Số lượng Agents | Kỹ năng/Quy tắc | Thành phần khác |
-|-----|---------|-----------------|-----------------|-----------------|
-| **Antigravity** | `.agent/` | 46 Agents | 67 Skills | 11 Workflows, 4 Scripts |
-| **Cursor** | `.cursor/` | — | 48 Rules | Hooks & Skills tương thích |
-| **VS Code** | `.vscode/` | 1 (Copilot) | — | Báo cáo instructions, settings |
-| **Kiro** | `.kiro/` | 32 Agents | 18 Skills | 17 Steering, 10 Hooks |
-| **OpenCode** | `.opencode/` | 12 Agents | 11 Instructions | 31 Commands, Plugins |
-| **Visual Studio** | `.vs/` | — | — | Báo cáo instructions .NET |
+### Tính năng nổi bật
+- 🤖 **59 agents chuyên biệt** (orchestrator, backend, frontend, security, debugger...)
+- 📚 **322 skills** (bao gồm 117 skills từ Hermes Agent)
+- 🧠 **Self-Learning Protocol** — AI tự tạo skills mới từ kinh nghiệm (Hermes-inspired)
+- 🔒 **OWASP Top 10** tích hợp sẵn trong security-auditor
+- 🎯 **C#/.NET first-class support** (Clean Architecture, EF Core, xUnit)
+- 📦 **Zero-Config** — Copy-Paste là hoạt động ngay
 
 ---
 
-## 📂 Cấu trúc Thư mục (`output/`)
+## 🔬 Nguồn gốc & Phương pháp
 
-```bash
+### 6 Toolkits đã hợp nhất
+
+| # | Toolkit | Đóng góp chính |
+|---|---------|----------------|
+| 1 | **antigravity-kit** | Agents, skills, workflows, hooks — nền tảng Antigravity |
+| 2 | **everything-claude-code (ECC)** | 203 skills + dotnet-patterns, TDD workflow |
+| 3 | **superpowers** | TDD, planning, subagent coordination |
+| 4 | **awesome-copilot** | 182+ agents, 173+ instructions |
+| 5 | **antigravity-awesome-skills** | 1293+ community skills |
+| 6 | **hermes-agent** (NousResearch) | Self-learning loop, 117 skills, skill-evolution |
+
+### Phương pháp
+1. **Kiểm kê** — Thu thập toàn bộ từ 6 nguồn
+2. **Loại trùng** — 241→59 agents, 1753→322 skills, 189→89 rules
+3. **Phân loại** — 10 danh mục chuẩn
+4. **Tạo SSoT** — `shared/` folder chứa bản đầy đủ nhất
+5. **Adapt IDE** — Transform format cho từng IDE
+6. **Self-Learning** — Tích hợp Hermes self-improving protocol
+
+---
+
+## 📂 Cấu trúc thư mục (`output/`)
+
+```
 output/
-├── .agent/              # Cấu hình Antigravity (Agents, Skills, Workflows)
-├── .cursor/             # Cấu hình Cursor (Rules, Hooks)
-├── .kiro/               # Cấu hình Kiro (Agents, Steering, Hooks)
-├── .opencode/           # Cấu hình OpenCode (Plugins, Commands)
-├── .vs/                 # Cấu hình Visual Studio (Copilot Rules)
-├── .vscode/             # Cấu hình VS Code (Copilot Instructions, Settings)
-├── .cursorrules         # Quy tắc tổng hợp cho Cursor (File gốc)
-├── GEMINI.md            # Quy tắc tổng hợp cho Antigravity (File gốc)
-├── PLAN_UPDATE.md       # Lộ trình nâng cấp tương lai
-└── README.md            # Tài liệu hướng dẫn (Bản này)
+├── shared/                    ← 🧠 Single Source of Truth (KHÔNG IDE nào đọc trực tiếp)
+│   ├── agents/     (59 files) ← Tất cả agent definitions
+│   ├── skills/     (322 dirs) ← Tất cả skills (SKILL.md format)
+│   ├── rules/      (89 files) ← Rules theo ngôn ngữ (14 ngôn ngữ)
+│   ├── workflows/  (11 files) ← Workflow definitions
+│   └── hooks/      (4 files)  ← Hook scripts
+│
+├── .agent/                    ← Antigravity IDE (full sync từ shared/)
+│   ├── agents/     (59 files)
+│   ├── skills/     (322 dirs)
+│   ├── workflows/  (11 files)
+│   └── hooks/      (4 files)
+│
+├── .cursor/                   ← Cursor IDE
+│   ├── rules/      (89 files) ← Language-specific rules
+│   ├── skills/     (322 dirs)
+│   └── hooks/                 ← Cursor hooks integration
+│
+├── .vscode/                   ← Visual Studio Code
+│   ├── agents/     (16 files) ← Custom Agents (copilot agent mode)
+│   ├── skills/     (31 dirs)  ← Chọn lọc skills quan trọng nhất
+│   ├── copilot-instructions.md
+│   └── settings.json
+│
+├── .kiro/                     ← Kiro IDE
+│   └── steering/   (8 files)  ← Auto-loaded rules (fileMatch)
+│
+├── .opencode/                 ← OpenCode
+│   ├── opencode.json          ← 6 commands (/plan, /review, /test...)
+│   └── AGENTS.md              ← Agent definitions
+│
+├── .vs/                       ← Visual Studio
+│   └── copilot-instructions.md ← C#/.NET focused
+│
+├── docs/
+│   └── MASTER_CATALOG.md      ← Kiểm kê chi tiết gốc
+│
+├── GEMINI.md                  ← Root config cho Antigravity
+├── .cursorrules               ← Root config cho Cursor
+├── AGENTS.md                  ← Root config cho Kiro/OpenCode (15 agents)
+├── hermes-config.yaml.example ← Template config cho Hermes Agent
+├── README.md                  ← Tài liệu này
+└── PLAN_UPDATE.md             ← Lộ trình nâng cấp
 ```
 
 ---
 
-## 🚀 Hướng dẫn sử dụng theo từng IDE
+## 📊 Thống kê chi tiết
 
-### 1. Antigravity IDE (Khuyến nghị)
-- **Cách cài đặt:** Copy folder `.agent/` và file `GEMINI.md` vào thư mục gốc của dự án bạn.
-- **Cách dùng:** Gõ `/orchestrate` hoặc sử dụng các Agent như `orchestrator`, `project-planner` trực tiếp.
+### Tổng quát
 
-### 2. Cursor IDE
-- **Cách cài đặt:** Copy folder `.cursor/` và file `.cursorrules` vào thư mục gốc dự án.
-- **Cách dùng:** Cursor sẽ tự động đọc quy tắc. Sử dụng phím tắt (tùy cài đặt) để gọi Chat/Composer.
+| Metric | Số lượng |
+|--------|:---:|
+| Agents | 59 |
+| Skills | 322 |
+| Rules | 89 (14 ngôn ngữ) |
+| Workflows | 11 |
+| Hooks | 4 |
+| IDE được hỗ trợ | 6 |
+| Toolkits gốc | 6 |
 
-### 3. Visual Studio Code
-- **Cách cài đặt:** Copy folder `.vscode/` vào dự án.
-- **Cách dùng:** GitHub Copilot Agent Mode sẽ tự động nhận diện `copilot-instructions.md`.
+### Chi tiết theo IDE
 
-### 4. Kiro IDE (AWS/Enterprise)
-- **Cách cài đặt:** Copy folder `.kiro/` vào dự án.
-- **Cách dùng:** Sử dụng menu Agent Hooks để kích hoạt Typecheck-on-edit hoặc Quality-Gate.
+| IDE | Agents | Skills | Rules/Steering | Configs | Self-Learning |
+|-----|:---:|:---:|:---:|:---:|:---:|
+| **Antigravity** (.agent/) | 59 | 322 | — | GEMINI.md | ✅ |
+| **Cursor** (.cursor/) | — | 322 | 89 | .cursorrules | ✅ |
+| **VS Code** (.vscode/) | 16 | 31 | — | copilot-instructions.md, settings.json | ✅ |
+| **Kiro** (.kiro/) | — | — | 8 steering | AGENTS.md | ✅ |
+| **OpenCode** (.opencode/) | — | — | — | opencode.json, AGENTS.md | ✅ |
+| **Visual Studio** (.vs/) | — | — | — | copilot-instructions.md | ✅ |
+
+### Skills theo Category (top 10)
+
+| Category | Số lượng | Ví dụ |
+|----------|:---:|-------|
+| Software Development | 42 | plan, tdd, debugging, code-review |
+| DevOps | 28 | docker, deployment, CI/CD |
+| Security | 19 | OWASP, vulnerability-scanner, 1password |
+| MLOps / AI | 35 | axolotl, vllm, pytorch, dspy |
+| Frontend | 22 | react, tailwind, frontend-design |
+| Backend | 18 | dotnet-patterns, api-design, golang |
+| Database | 12 | postgres, migrations, schema-design |
+| GitHub | 8 | pr-workflow, code-review, issues |
+| Creative | 15 | excalidraw, p5js, songwriting |
+| Research | 11 | arxiv, deep-research, polymarket |
 
 ---
 
-## 💪 Điểm mạnh & Điểm yếu
+## 🚀 Hướng dẫn sử dụng từng IDE
+
+### 1. Antigravity IDE ⭐ (Đầy đủ nhất)
+```bash
+# Copy vào project root:
+cp -r output/.agent/ your-project/
+cp output/GEMINI.md your-project/
+
+# Sử dụng:
+/orchestrate <yêu cầu phức tạp>
+/plan <lên kế hoạch>
+/debug <phân tích lỗi>
+```
+
+### 2. Cursor IDE
+```bash
+cp -r output/.cursor/ your-project/
+cp output/.cursorrules your-project/
+
+# Cursor tự động đọc rules. Mở Chat/Composer để dùng.
+```
+
+### 3. Visual Studio Code
+```bash
+cp -r output/.vscode/ your-project/
+
+# GitHub Copilot Agent Mode → tự nhận diện copilot-instructions.md
+# Sử dụng custom agents: @orchestrator, @backend-specialist, @debugger...
+```
+
+### 4. Kiro IDE
+```bash
+cp -r output/.kiro/ your-project/
+cp output/AGENTS.md your-project/
+
+# Kiro tự load steering files dựa trên fileMatch.
+# Mở file .cs → C# standards tự active.
+```
+
+### 5. OpenCode
+```bash
+cp -r output/.opencode/ your-project/
+
+# Dùng commands: /plan, /review, /test, /debug, /security, /dotnet
+```
+
+### 6. Visual Studio
+```bash
+cp -r output/.vs/ your-project/
+
+# GitHub Copilot tự đọc copilot-instructions.md
+# Focus sâu: C#/.NET, Clean Architecture, EF Core, xUnit
+```
+
+### 7. Hermes Agent (Bonus)
+```bash
+# Copy template config:
+cp output/hermes-config.yaml.example ~/.hermes/config.yaml
+
+# External dirs trỏ vào shared/skills → Hermes dùng ngay 322 skills!
+```
+
+### Dùng tất cả IDE cùng lúc
+```bash
+# Copy toàn bộ output/ vào project:
+cp -r output/* your-project/
+cp -r output/.* your-project/   # Đừng quên hidden folders
+```
+
+---
+
+## 🧠 Self-Learning Protocol (Hermes-inspired)
+
+Đây là tính năng **game-changer** — AI tự tạo skills mới từ kinh nghiệm:
+
+### Cách hoạt động
+1. Sau khi hoàn thành task phức tạp (5+ bước), AI tự đánh giá skill-worthiness
+2. Nếu đáng lưu → viết `SKILL.md` với YAML frontmatter + procedure + pitfalls
+3. Lưu vào thư mục skills tương ứng
+4. Thông báo: `💡 Created skill: <name>`
+
+### Trigger conditions
+- ✅ Task phức tạp hoàn thành thành công
+- ✅ Tìm được đường đi đúng sau khi bị lỗi
+- ✅ User sửa lại approach
+- ✅ Phát hiện workflow không rõ ràng
+
+### Agents liên quan
+- **`skill-curator`** — Meta-agent quản lý vòng đời skill
+- **`self-learning-loop`** — Protocol tạo skill mới
+- **`skill-evolution`** — Protocol cải thiện skill có sẵn
+
+→ **Càng code càng thông minh**, skills tích lũy theo thời gian!
+
+---
+
+## 📦 Shared — Single Source of Truth
+
+### Mục đích
+`shared/` là **kho nguyên liệu gốc** — chứa bản đầy đủ nhất đã loại trùng. Nó **KHÔNG trực tiếp được IDE nào đọc**.
+
+### Vai trò
+
+| Vai trò | Giải thích |
+|---------|-----------|
+| **Nguồn gốc duy nhất** | Sửa 1 rule → sửa trong `shared/` → sync ra các IDE folders |
+| **Tham chiếu** | AI hoặc bạn đọc `shared/` để biết toàn bộ kiến thức |
+| **Input cho auto-sync** | Script tự generate 6 IDE folders từ `shared/` (v2.3 planned) |
+| **Hermes compatible** | Hermes Agent đọc trực tiếp via `external_dirs` config |
+
+### Tác động với từng IDE
+
+| IDE | Lấy gì từ shared/? | Đọc trực tiếp? |
+|-----|---------------------|:---:|
+| Antigravity | Copy nguyên agents/, skills/, workflows/, hooks/ | ❌ |
+| Cursor | Copy rules/ + skills/ | ❌ |
+| VS Code | Chọn lọc 16 agents + 31 skills | ❌ |
+| Kiro | Transform → 8 steering files | ❌ |
+| OpenCode | Tóm tắt → AGENTS.md + commands | ❌ |
+| Visual Studio | Tóm tắt → copilot-instructions.md | ❌ |
+| Hermes | Đọc qua external_dirs | ✅ |
+
+---
+
+## 💪 Điểm mạnh & Hạn chế
 
 ### 🌟 Điểm mạnh
-- **Hợp nhất sức mạnh:** Kết hợp trí tuệ từ 5 bộ toolkit lớn nhất hiện nay.
-- **Giao thức đồng nhất:** Một quy trình (Plan → Execute → Verify) áp dụng cho mọi IDE.
-- **Zero-Config:** Chỉ cần Copy-Paste là hoạt động ngay lập tức.
-- **Bảo mật tối đa:** Tích hợp sẵn `security-auditor` và các luật bảo mật OWASP 2025.
+- **Hợp nhất 6 toolkit** — tinh hoa từ 6 nguồn + 66.6k star Hermes Agent
+- **Self-Learning** — AI tự cải thiện theo thời gian (unique feature)
+- **Orchestrator-First** — Quy trình Plan → Execute → Verify nhất quán
+- **C#/.NET first-class** — dotnet-patterns, csharp-testing, EF Core, Clean Architecture
+- **Zero-Config** — Copy-Paste là hoạt động ngay
+- **IDE-native** — Tận dụng tính năng riêng từng IDE (Kiro fileMatch, VS Code Custom Agents)
+- **Hermes compatible** — Skills portable theo chuẩn agentskills.io
+- **322 skills** — Từ coding đến MLOps, DevOps, security, creative
 
-### ⚠️ Điểm yếu
-- **Dung lượng lớn:** Hàng trăm file cấu hình có thể làm tăng nhẹ kích thước repository.
-- **Độ phức tạp:** Nhiều Agent có chức năng chồng lấp (ví dụ: `code-reviewer` của ECC vs `test-engineer` của superpowers).
-- **Yêu cầu phần cứng:** Chạy song song nhiều Agent đòi hỏi context window của LLM lớn (Claude 3.5 Sonnet trở lên).
+### ⚠️ Hạn chế
+- **Dung lượng lớn** — 322 skills + 59 agents chiếm ~5MB
+- **Context window** — Chạy nhiều agent đồng thời cần LLM context lớn
+- **Chưa auto-sync** — Cập nhật shared/ cần manual sync (planned v2.3)
+- **IDE giới hạn** — VS, OpenCode chỉ hỗ trợ via instruction files
 
 ---
 
 ## 💡 Ví dụ thực tế
 
-### Gọi Orchestrator điều phối (Antigravity/Cursor)
-**User:** "Xây dựng tính năng đăng nhập bằng ví Metamask."
-**AI Workflow:** 
-1. `orchestrator` nhận lệnh.
-2. `project-planner` thiết kế `PLAN.md`.
-3. `backend-specialist` viết API auth.
-4. `frontend-specialist` viết UI login.
-5. `security-auditor` quét lỗ hổng bảo mật.
-6. `test-engineer` chạy unit test.
+### Ví dụ 1: Orchestrate xây dựng API (Antigravity/Cursor)
+```
+User: /orchestrate Xây dựng REST API cho hệ thống quản lý đơn hàng
 
-### Chạy Quality Gate (Kiro)
-Khi bạn chạy lệnh `git push`, hệ thống tự động gọi `quality-gate.sh` để kiểm tra Lint, Build và Security trước khi cho phép đẩy code lên server.
+AI Workflow:
+1. 🤖 orchestrator → nhận và phân tích yêu cầu
+2. 📋 project-planner → tạo PLAN.md
+3. 🏗️ architect → chọn Clean Architecture + Minimal API
+4. 💾 database-architect → thiết kế schema Orders, OrderItems
+5. ⚙️ backend-specialist → viết API endpoints + EF Core
+6. 🔒 security-auditor → quét OWASP vulnerabilities
+7. 🧪 test-engineer → viết xUnit tests
+8. 💡 skill-curator → tạo skill mới "order-api-pattern"
+```
+
+### Ví dụ 2: Debug lỗi C# (Visual Studio)
+```
+User: Tại sao API trả về 500 khi gọi /api/orders?
+
+AI (đọc copilot-instructions.md):
+1. 🔍 debugger → 4-phase systematic debugging
+2. Phát hiện: thiếu CancellationToken, async void
+3. Fix + tạo skill "aspnet-common-pitfalls"
+```
+
+### Ví dụ 3: Kiro auto-steering
+```
+Khi mở file OrderService.cs:
+→ Kiro tự load csharp-standards.md steering
+→ AI biết dùng sealed class, record DTO, CancellationToken
+→ Khi task hoàn thành → self-learning.md trigger tạo skill mới
+```
 
 ---
 
-## 📅 Kế hoạch Nâng cấp (PLAN_UPDATE.md)
+## 📅 Kế hoạch nâng cấp
 
-Chúng tôi đã tách riêng một bản kế hoạch nâng cấp chi tiết tại file [PLAN_UPDATE.md](PLAN_UPDATE.md). Các mục tiêu chính bao gồm:
-- Tự động đồng bộ hóa bản cập nhật từ nguồn gốc.
-- Xây dựng giao diện UI để chọn lọc bộ kỹ năng (Toolkit UI Customizer).
-- Nâng cấp khả năng tự giải quyết xung đột mã nguồn của Orchestrator.
+Chi tiết tại [PLAN_UPDATE.md](PLAN_UPDATE.md). Tóm tắt:
+
+| Version | Timeline | Key Feature |
+|---------|----------|-------------|
+| **v2.2** ✅ | Hiện tại | Hermes integration, self-learning, 322 skills, 16 VS Code agents |
+| **v2.3** | 1-2 tháng | Auto-sync script (shared/ → 6 IDE folders tự động) |
+| **v3.0** | 3-6 tháng | MCP Server, Template Generator (`npx create-unified-toolkit`) |
+| **v4.0** | 6-12 tháng | Self-Learning AI, Community Marketplace, Cloud Sync |
 
 ---
-*Dự án được thực hiện bởi Antigravity AI Assistant - 2026.*
+
+## 📄 License
+
+MIT — Free to use, modify, and distribute.
+
+---
+
+*Dự án v2.2 — Unified AI Agent Toolkit Orchestrator — 2026*
+*Powered by: antigravity-kit + ECC + superpowers + awesome-copilot + antigravity-awesome-skills + hermes-agent*

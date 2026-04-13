@@ -1,6 +1,6 @@
 # AGENTS.md — OpenCode Agent Definitions
 
-> Unified AI Toolkit v2.0 — OpenCode Configuration
+> Unified AI Toolkit v2.2 — OpenCode Configuration (Hermes-enhanced)
 
 ## Core Behavior
 
@@ -37,6 +37,15 @@ When working with C#/.NET:
 - Repository Pattern with EF Core
 - Options Pattern for configuration
 - Minimal API with route groups
+
+## 🧠 Self-Learning Protocol (Hermes-inspired)
+
+After complex task (5+ steps), auto-create skill:
+1. Identify reusable knowledge → write `SKILL.md`
+2. Save to project skills directory
+3. Announce: `💡 Created skill: <name>`
+
+The `skill-curator` agent manages skill lifecycle.
 
 ## Universal Rules
 
