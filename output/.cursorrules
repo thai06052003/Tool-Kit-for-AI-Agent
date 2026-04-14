@@ -74,6 +74,6 @@ The `skill-curator` agent manages skill lifecycle.
 
 ## Code Style
 - **Format**: Follow language-specific formatters (dotnet format, prettier, black, gofmt)
-- **Comments**: English only. Explain WHY, not WHAT.
+- **Comments**: Tiếng Việt hoặc Tiếng Anh. Giải thích rõ TẠI SAO (WHY), không chỉ là CÁI GÌ (WHAT).
 - **Naming**: Follow language conventions (PascalCase for C#, camelCase for JS/TS)
 - **Tests**: Every feature must have tests. Unit > Integration > E2E.

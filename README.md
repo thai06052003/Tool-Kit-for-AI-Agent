@@ -611,5 +611,5 @@ MIT — Free to use, modify, and distribute.
 <p align="center">
   <b>Unified AI Agent Toolkit v2.2</b><br/>
   <i>Powered by: antigravity-kit + ECC + superpowers + awesome-copilot + antigravity-awesome-skills + hermes-agent</i><br/>
-  <i>Built with ❤️ by Antigravity AI — 2026</i>
+  <i>Built with ❤️ by Xuan Thai — 2026</i>
 </p>

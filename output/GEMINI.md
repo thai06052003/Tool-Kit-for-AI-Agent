@@ -40,7 +40,7 @@ trigger: always_on
 
 ## TIER 0: UNIVERSAL RULES
 
-- **Language**: Respond in user's language. Code/comments in English.
+- **Language**: Respond in user's language. Code/comments in Vietnamese (Ưu tiên Tiếng Việt cho các phần giải thích).
 - **Clean Code**: Concise. Testing (Unit > Int > E2E). Performance (Measure first). Verify secrets.
 - **Dependencies**: Check existing code before modifying.
 - **Read → Understand → Apply**: Understand WHY and PRINCIPLES before coding.
