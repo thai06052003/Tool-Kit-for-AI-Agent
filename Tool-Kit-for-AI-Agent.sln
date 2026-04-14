@@ -1,0 +1,44 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.2.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "sources", "sources", "{C16B2082-E6A6-C480-36D0-FC08AA18D453}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "awesome-copilot", "awesome-copilot", "{69CEEF9E-6D6F-798D-6FD4-E1D97A45AACB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "skills", "skills", "{C62EF48D-00F9-13A7-9408-A4D1B25FFA6F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "winmd-api-search", "winmd-api-search", "{66C043CB-A5D0-C37B-FCEA-39C6EB715066}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "scripts", "scripts", "{0F44A25B-4A81-BF21-44EC-72509E18A1F2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "cache-generator", "cache-generator", "{96310BBD-FC49-75B0-83DE-921CF7A8EE01}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CacheGenerator", "sources\awesome-copilot\skills\winmd-api-search\scripts\cache-generator\CacheGenerator.csproj", "{33784ECF-48D4-8F06-65CB-6E14CC7281E8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{33784ECF-48D4-8F06-65CB-6E14CC7281E8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{33784ECF-48D4-8F06-65CB-6E14CC7281E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{33784ECF-48D4-8F06-65CB-6E14CC7281E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{33784ECF-48D4-8F06-65CB-6E14CC7281E8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{69CEEF9E-6D6F-798D-6FD4-E1D97A45AACB} = {C16B2082-E6A6-C480-36D0-FC08AA18D453}
+		{C62EF48D-00F9-13A7-9408-A4D1B25FFA6F} = {69CEEF9E-6D6F-798D-6FD4-E1D97A45AACB}
+		{66C043CB-A5D0-C37B-FCEA-39C6EB715066} = {C62EF48D-00F9-13A7-9408-A4D1B25FFA6F}
+		{0F44A25B-4A81-BF21-44EC-72509E18A1F2} = {66C043CB-A5D0-C37B-FCEA-39C6EB715066}
+		{96310BBD-FC49-75B0-83DE-921CF7A8EE01} = {0F44A25B-4A81-BF21-44EC-72509E18A1F2}
+		{33784ECF-48D4-8F06-65CB-6E14CC7281E8} = {96310BBD-FC49-75B0-83DE-921CF7A8EE01}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A1794DB5-0AE4-414B-ABC9-6539EB974A74}
+	EndGlobalSection
+EndGlobal
