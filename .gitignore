@@ -9,11 +9,7 @@
 /out
 
 # IDEs and Editors
-.vscode/*
-!.vscode/agents/
-!.vscode/skills/
-!.vscode/copilot-instructions.md
-!.vscode/settings.json
+.vscode/
 .vs/
 .idea/
 *.suo
@@ -21,11 +17,23 @@
 *.userosscache
 *.sln.docstates
 
+# [NEW] Unified AI Agent Toolkit Exceptions
+!.github/
+!.agent/
+!.cursor/
+!.kiro/
+!.opencode/
+!output/
+!scripts/
+!GEMINI.md
+!.cursorrules
+!AGENTS.md
+
 # OS Files
 .DS_Store
 Thumbs.db
 
-# Toolkit specific
+# Toolkit specific (Database & Index files)
 *.vsidx
 *.sqlite
 *.db

@@ -1,9 +1,9 @@
-# 🧰 Unified AI Agent Toolkit v2.2
+# 🧰 Unified AI Agent Toolkit v2.3
 
 > **Giải pháp "Drop-in"** tích hợp AI Agent cho **6 IDE** phổ biến nhất.
-> Copy folder tương ứng vào dự án → AI tự động hoạt động, tự học, và ngày càng thông minh hơn.
+> Tự động đồng bộ tri thức, tự học và thống nhất trên mọi môi trường.
 
-[![Version](https://img.shields.io/badge/version-2.2-blue)]()
+[![Version](https://img.shields.io/badge/version-2.3-blue)]()
 [![IDEs](https://img.shields.io/badge/IDEs-6-green)]()
 [![Skills](https://img.shields.io/badge/skills-322-orange)]()
 [![Agents](https://img.shields.io/badge/agents-59-purple)]()
@@ -124,12 +124,13 @@ output/
 │   ├── workflows/  (11 files) ← Workflow definitions
 │   └── hooks/       (4 files) ← Hook scripts (typecheck, quality-gate...)
 │
-├── .agent/                    ← Antigravity IDE (full sync từ shared/)
-├── .cursor/                   ← Cursor IDE (rules + skills)
-├── .vscode/                   ← VS Code (16 agents + 31 skills)
-├── .kiro/                     ← Kiro IDE (8 steering files)
-├── .opencode/                 ← OpenCode (AGENTS.md + opencode.json)
-├── .vs/                       ← Visual Studio (copilot-instructions.md)
+├── .agent/                    ← Antigravity IDE (Full Sync)
+├── .cursor/                   ← Cursor IDE (Rules + Skills)
+├── .github/                   ← VS Code Native (copilot-instructions.md + skills/)
+├── .kiro/                     ← Kiro IDE (Steering files)
+├── .opencode/                 ← OpenCode (Agents + Json)
+├── .vs/                       ← Visual Studio (Instructions)
+├── scripts/                   ← ⚙️ Sync Engine (sync_all.ps1)
 │
 ├── level-up/                  ← 🆙 Evolution Archive (mới)
 │   └── README.md              ← Hướng dẫn merge kĩ năng mới vào toolkit
@@ -170,30 +171,13 @@ output/
 </details>
 
 <details>
-<summary><b>.vscode/ — Visual Studio Code (Click để mở)</b></summary>
+<summary><b>.github/ — Visual Studio Code (Click để mở)</b></summary>
 
 ```
-.vscode/
-├── agents/     (16 files)  ← Custom Agents cho Copilot Agent Mode
-│   ├── orchestrator.md
-│   ├── backend-specialist.md
-│   ├── frontend-specialist.md
-│   ├── database-architect.md
-│   ├── security-auditor.md
-│   ├── test-engineer.md
-│   ├── debugger.md
-│   ├── code-reviewer.md
-│   ├── devops-engineer.md
-│   ├── project-planner.md
-│   ├── architect.md
-│   ├── performance-optimizer.md
-│   ├── mobile-developer.md
-│   ├── documentation-writer.md
-│   ├── csharp-reviewer.md
-│   └── skill-curator.md
-├── skills/     (31 dirs)   ← Chọn lọc skills quan trọng nhất
-├── copilot-instructions.md  ← Hướng dẫn chính cho Copilot
-└── settings.json            ← VS Code settings
+.github/
+├── skills/     (322 dirs)  ← Full Sync từ shared/
+├── workflows/  (11 files)  ← brainstorming.md, creative.md...
+└── copilot-instructions.md  ← Hướng dẫn chuẩn hóa cho Copilot
 ```
 </details>
 
@@ -255,7 +239,7 @@ output/
 |-----|--------|:---:|:---:|:---:|:---:|:---:|
 | **Antigravity** | `.agent/` | 59 | 322 | — | `GEMINI.md` | ✅ |
 | **Cursor** | `.cursor/` | — | 322 | 89 | `.cursorrules` | ✅ |
-| **VS Code** | `.vscode/` | 16 | 31 | — | `copilot-instructions.md` | ✅ |
+| **VS Code** | `.github/` | 16 | 322 | — | `copilot-instructions.md` | ✅ |
 | **Kiro** | `.kiro/` | — | — | 8 | `AGENTS.md` | ✅ |
 | **OpenCode** | `.opencode/` | — | — | — | `AGENTS.md` + `opencode.json` | ✅ |
 | **Visual Studio** | `.vs/` | — | — | — | `copilot-instructions.md` | ✅ |
@@ -329,16 +313,17 @@ Copy-Item "output/.cursorrules" "your-project/"
 
 ---
 
-### 3. Visual Studio Code
+### 3. Visual Studio Code ⭐ (Đường dẫn chuẩn)
 
 ```powershell
-Copy-Item -Path "output/.vscode" -Destination "your-project/" -Recurse
+# Copy vào project root (Sử dụng path chuẩn GitHub):
+Copy-Item -Path "output/.github" -Destination "your-project/" -Recurse
 
-# GitHub Copilot Agent Mode → tự nhận diện copilot-instructions.md
-# Gọi agents: @orchestrator, @backend-specialist, @debugger...
+# Gọi agents: @orchestrator, @backend-specialist...
+# AI tự động truy cập 322 skills trong .github/skills/
 ```
 
-**Tính năng riêng:** 16 Custom Agents cho Copilot Agent Mode.
+**Tính năng riêng:** Tự động kích hoạt, truy cập full skills qua path native `.github/`.
 
 ---
 
@@ -493,11 +478,13 @@ shared/
 | **Visual Studio** | rules/csharp/ | Tóm tắt → copilot-instructions.md | ❌ |
 | **Hermes** | skills/ | Đọc qua `external_dirs` config | ✅ |
 
-### Quy trình cập nhật
+### Quy trình cập nhật (Consistency Engine)
 
-```
-Sửa trong shared/ → Chạy sync → 6 IDE folders tự cập nhật
-                     (hiện tại manual, v2.3 sẽ có script tự động)
+```bash
+# 1. Chỉnh sửa trong shared/ (Skills/Agents)
+# 2. Chạy lệnh đồng bộ:
+./scripts/sync_all.ps1
+# -> 6 IDE folders (.agent, .github, .cursor...) tự động cập nhật 100%
 ```
 
 ---
