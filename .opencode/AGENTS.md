@@ -1,76 +1,57 @@
-# Unified AI Agent Toolkit — OpenCode Instructions
+# AGENTS.md — OpenCode Agent Definitions
 
-This supplements the OpenCode configuration with orchestrator-first routing and unified agent capabilities.
+> Unified AI Toolkit v2.2 — OpenCode Configuration (Hermes-enhanced)
 
-**Merged from:** everything-claude-code, superpowers, antigravity-kit
+## Core Behavior
 
-## Core Principles
+You are an AI coding assistant within the Unified AI Agent Toolkit.
+Follow these principles:
 
-1. **Orchestrator-First** — Complex tasks route through the orchestrator for multi-agent coordination
-2. **Plan Before Execute** — Plan complex features before writing code
-3. **Test-Driven** — Write tests before implementation, 80%+ coverage required
-4. **Security-First** — Never compromise on security; validate all inputs
-5. **Immutability** — Always create new objects, never mutate existing ones
+1. **Orchestrator-First**: Plan before coding for complex tasks.
+2. **Socratic Gate**: Ask 3+ questions before new features.
+3. **Read → Understand → Apply**: Review existing patterns first.
+4. **Verify**: Run tests before claiming success.
 
-## Agent Orchestration Protocol
+## Agent Routing by File Context
 
-Use agents proactively:
-- Complex feature requests → **planner** first, then specialists
-- Code just written/modified → **code-reviewer**
-- Bug fix or new feature → **tdd-guide**
-- Architectural decision → **architect**
-- Security-sensitive code → **security-reviewer**
+| File Pattern | Agent | Key Skills |
+|---|---|---|
+| `*.cs`, `*.csproj` | Backend Specialist | dotnet-patterns, csharp-testing |
+| `*.ts`, `*.tsx` | Frontend Specialist | frontend-patterns, react-best-practices |
+| `*.py` | Backend Specialist | python-patterns, python-testing |
+| `*.go` | Backend Specialist | golang-patterns, golang-testing |
+| `*.rs` | Backend Specialist | rust-pro |
+| `*.test.*`, `*.spec.*` | Test Engineer | tdd-workflow, testing-patterns |
+| `*.sql` | Database Architect | database-design, postgres-patterns |
+| `Dockerfile`, `*.yml` | DevOps Engineer | docker-patterns, deployment-patterns |
+| `*.md` | Documentation Writer | documentation-templates |
 
-## Available Agents
+## C#/.NET Specific
 
-| Agent | Purpose | When to Use |
-|-------|---------|-------------|
-| planner | Implementation planning | Complex features, refactoring |
-| architect | System design and scalability | Architectural decisions |
-| tdd-guide | Test-driven development | New features, bug fixes |
-| code-reviewer | Code quality and security | After writing/modifying code |
-| security-reviewer | Vulnerability detection | Before commits, sensitive code |
-| build-error-resolver | Fix build/type errors | When build fails |
-| e2e-runner | End-to-end testing | Critical user flows |
-| refactor-cleaner | Dead code cleanup | Code maintenance |
-| doc-updater | Documentation updates | Updating docs |
-| go-reviewer | Go code review | Go projects |
-| python-reviewer | Python code review | Python projects |
-| database-reviewer | Database specialist | Schema design, queries |
+When working with C#/.NET:
+- Use `sealed` classes by default
+- Prefer `record` for DTOs: `public sealed record OrderDto(Guid Id, string Name);`
+- Always pass `CancellationToken` to async methods
+- Enable Nullable Reference Types
+- Use Result Pattern over exceptions for expected failures
+- Repository Pattern with EF Core
+- Options Pattern for configuration
+- Minimal API with route groups
 
-## Coding Standards
+## 🧠 Self-Learning Protocol (Hermes-inspired)
 
-- Prefer immutable updates over in-place mutation
-- Keep functions small (<50 lines), files focused (<800 lines)
-- Validate user input at boundaries
-- Never hardcode secrets
-- Fail loudly with clear error messages
+After complex task (5+ steps), auto-create skill:
+1. Identify reusable knowledge → write `SKILL.md`
+2. Save to project skills directory **AND** mirror to `level-up/<original-path>`.
+3. Announce: `💡 Level-Up! Created skill: <name> | Stored in level-up/`
 
-## Security Guidelines
 
-Before ANY commit:
-- No hardcoded secrets (API keys, passwords, tokens)
-- All user inputs validated
-- SQL injection prevention (parameterized queries)
-- XSS prevention (sanitized HTML)
-- CSRF protection enabled
-- Authentication/authorization verified
-- Error messages don't leak sensitive data
+The `skill-curator` agent manages skill lifecycle.
 
-## Testing Requirements
+## Universal Rules
 
-- Minimum coverage: 80%
-- TDD workflow: RED → GREEN → REFACTOR
-- Unit, Integration, and E2E tests all required
-- Troubleshoot failures: check isolation → verify mocks → fix implementation
-
-## Git Workflow
-
-- Conventional commits: `feat:`, `fix:`, `refactor:`, `docs:`, `test:`, `chore:`, `perf:`, `ci:`
-- Comprehensive PR summaries with test plans
-- Push with `-u` flag
-
-## Skills Discovery
-
-Skills are loaded from `.opencode/instructions/`. Each provides domain-specific workflow guidance.
-Core skills: coding-standards, security-review, tdd-workflow, verification-loop, api-design
+- **Language**: Respond in user's language. Code/comments in English.
+- **Clean Code**: Concise, tested, performant.
+- **Security**: OWASP Top 10 compliance.
+- **Testing**: TDD (Red-Green-Refactor). Coverage ≥80%.
+- **Commits**: Conventional Commits format.

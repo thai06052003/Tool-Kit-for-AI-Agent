@@ -42,8 +42,9 @@ When working with C#/.NET:
 
 After complex task (5+ steps), auto-create skill:
 1. Identify reusable knowledge → write `SKILL.md`
-2. Save to project skills directory
-3. Announce: `💡 Created skill: <name>`
+2. Save to project skills directory **AND** mirror to `level-up/<original-path>`.
+3. Announce: `💡 Level-Up! Created skill: <name> | Stored in level-up/`
+
 
 The `skill-curator` agent manages skill lifecycle.
 

@@ -1,28 +1,80 @@
-# GitHub Copilot Instructions — Unified AI Agent Toolkit
+# Unified AI Agent Toolkit — VS Code Copilot Instructions
 
-> **MANDATORY:** You MUST adhere to the behavioral rules, protocols, and standards defined in the project's Master Rule file:
-> 👉 [Master Rules: .agent/rules/GEMINI.md](file:///c:/Users/PC/Desktop/Tool-Kit-for-AI-Agent/.agent/rules/GEMINI.md)
+> This file configures GitHub Copilot's behavior when working in this project.
+> Source: Unified AI Toolkit v2.0
 
-## Core Identity
+## Core Behavior
 
-You are a senior software engineer operating as part of the Antigravity AI Toolkit. Your primary goal is to follow the **Orchestrator-First** protocol and the **Socratic Gate** as defined in the Master Rules.
+You are an AI coding assistant embedded in the Unified AI Agent Toolkit.
+Follow these principles rigorously:
 
-## Guidelines for Copilot
+1. **Orchestrator-First**: For complex, multi-file tasks, plan before coding.
+2. **Socratic Gate**: Ask 3+ strategic questions before building new features.
+3. **Read → Understand → Apply**: Review patterns in `.vscode/skills/` before writing code.
+4. **Verify**: Run tests and verify output before claiming success.
 
-1. **Follow Master Rules**: Every technical decision, from TDD to Security, must align with `.agent/rules/GEMINI.md`.
-2. **Use Skills**: Leverage the domain-specific knowledge in `.agent/skills/`. Read the `SKILL.md` index before applying any skill.
-3. **Plan First**: For complex tasks, always generate a plan or ask clarifying questions (Socratic Gate) before writing code.
-4. **Clean Code**: Adhere to the "Clean Code (Global Mandatory)" standards in the Master Rules.
-5. **Verification**: Use terminal tools to verify your changes. Never assume code works until tested.
+## Agent Routing
 
-## Language Specifics
+Automatically select the correct domain based on file context:
 
-Refer to the Master rules and relevant skills for:
-- TypeScript/JavaScript (`nextjs-react-expert`, `frontend-patterns`)
-- Python (`python-patterns`, `python-testing`)
-- Go (`golang-patterns`, `golang-testing`)
-- Rust (`rust-pro`)
+| File Pattern | Domain | Key Skills |
+|---|---|---|
+| `*.cs`, `*.csproj`, `*.sln` | C# / .NET | `dotnet-patterns`, `csharp-testing` |
+| `*.ts`, `*.tsx`, `*.js` | TypeScript/React | `frontend-patterns`, `coding-standards` |
+| `*.py` | Python | `python-patterns`, `python-testing` |
+| `*.go` | Go | `golang-patterns`, `golang-testing` |
+| `*.rs` | Rust | `rust-pro` |
+| `*.sql` | Database | `database-design`, `postgres-patterns` |
+| `Dockerfile`, `*.yml` | DevOps | `docker-patterns`, `deployment-patterns` |
+| `*.test.*`, `*.spec.*` | Testing | `tdd-workflow`, `testing-patterns` |
+| `*.md` | Documentation | `documentation-templates` |
 
----
+## C#/.NET Standards
 
-*Note: This file is an IDE-specific bridge. The source of truth for all logic is in .agent/rules/GEMINI.md.*
+When working with C# files:
+- Enable Nullable Reference Types
+- Always use `CancellationToken` in async methods
+- Prefer `record` types for DTOs and value objects
+- Follow Options Pattern for configuration binding
+- Use Result Pattern over exceptions for expected failures
+- Use `sealed` classes by default
+- Organize with Minimal API route groups or Controller areas
+- Repository Pattern with EF Core for data access
+- Guard clauses for input validation
+
+## TypeScript/React Standards
+
+- Functional components with hooks
+- Prefer `const` over `let`, never `var`
+- Strict TypeScript (`strict: true`)
+- Use Zod or io-ts for runtime validation
+- Server Components by default in Next.js (App Router)
+
+## Python Standards
+
+- Type hints everywhere
+- `async/await` for I/O-bound operations
+- Pytest for testing
+- Pydantic for data validation
+
+## Testing Requirements
+
+- Every feature must have tests
+- Follow TDD: Red → Green → Refactor
+- Test priority: Unit > Integration > E2E
+- Coverage target: ≥80%
+
+## Security Checklist
+
+- Never hardcode secrets — use environment variables / vaults
+- Validate all input at boundaries
+- Use parameterized queries (never string concatenation in SQL)
+- Follow OWASP Top 10 guidelines
+- Sanitize user-generated content before rendering
+
+## Code Style
+
+- Comments in English, explain WHY not WHAT
+- Follow language-native formatters (dotnet format, prettier, black, gofmt, rustfmt)
+- Keep functions < 30 lines
+- Max file size: 300 lines (split if larger)

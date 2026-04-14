@@ -103,8 +103,8 @@ After completing a complex task (5+ steps), **auto-create a new skill**:
 1. Identify reusable knowledge from the completed task
 2. Check if similar skill exists → update or create new
 3. Write `SKILL.md` with YAML frontmatter + procedure + pitfalls
-4. Save to `shared/skills/<skill-name>/SKILL.md`
-5. Announce: `💡 Created skill: <name>`
+4. Save to `output/shared/skills/<name>/SKILL.md` **AND** archive to `level-up/output/shared/skills/<name>/SKILL.md` (exact mirror path).
+5. Announce: `💡 Level-Up! Created skill: <name>`
 
 **Trigger conditions**: Complex task success, error recovery, user correction, non-trivial workflow discovered.
 

@@ -122,8 +122,9 @@ When working with non-C# files in the solution:
 After completing a complex task (5+ steps), create a new skill:
 1. Identify reusable knowledge from the completed task
 2. Write `SKILL.md` with YAML frontmatter (name, description, version) + procedure + pitfalls
-3. Save to project skills directory
-4. Announce: `💡 Created skill: <name>`
+3. Save to project skills directory **AND** mirror to `level-up/<original-path>`.
+4. Announce: `💡 Level-Up! Created skill: <name> | Stored in level-up/`
+
 
 Trigger: Complex task success, error recovery, user correction, non-trivial workflow.
 
