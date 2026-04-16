@@ -1,43 +1,74 @@
 # sync_all.ps1 - Unified AI Toolkit Sync Engine
-# Version: 1.1 (Unification Fix)
+# Version: 1.2.1 (Stability Fix)
 
 $ErrorActionPreference = "Continue"
 
-Write-Host "Starting Sync..." -ForegroundColor Cyan
+Write-Host "Starting Comprehensive Sync (v1.2.1)..." -ForegroundColor Cyan
 
-# 1. Sync Skills
+# --- FUNCTION: Mirror-Directory ---
+function Mirror-Directory($src, $dest) {
+    if (!(Test-Path $src)) { return }
+    if (!(Test-Path $dest)) { New-Item -ItemType Directory -Path $dest -Force | Out-Null }
+    
+    $exclude = @("*.db-wal", "*.db-shm", "*.sqlite", "*.vsidx", ".DS_Store", "Thumbs.db")
+    
+    Write-Host "Mirroring: $src -> $dest"
+    
+    # 1. Copy new/updated files
+    Copy-Item -Path "$src\*" -Destination $dest -Recurse -Force -Exclude $exclude
+    
+    # 2. Cleanup orphan files in destination
+    $srcFiles = Get-ChildItem -Path $src -Recurse | Select-Object -ExpandProperty Name
+    $destFiles = Get-ChildItem -Path $dest -Recurse | Select-Object -ExpandProperty Name
+    
+    foreach ($file in $destFiles) {
+        if ($srcFiles -notcontains $file) {
+            $targetPath = Join-Path $dest $file
+            if (Test-Path $targetPath) {
+                Remove-Item -Path $targetPath -Recurse -Force | Out-Null
+                Write-Host "Removed orphan: $file" -ForegroundColor Yellow
+            }
+        }
+    }
+}
+
+# --- PHASE 1: SSoT Distribution ---
+Write-Host "PHASE 1: SSoT Distribution"
+
+# Sync Skills
 $Source = "shared/skills"
-$Destinations = @(".agent/skills", ".github/skills", "output/shared/skills")
-
-if (Test-Path $Source) {
-    foreach ($Dest in $Destinations) {
-        Write-Host "Syncing Skills to: $Dest"
+$Destinations = @(".agent/skills", ".github/skills")
+foreach ($Dest in $Destinations) {
+    if (Test-Path $Source) {
         if (!(Test-Path $Dest)) { New-Item -ItemType Directory -Path $Dest -Force | Out-Null }
         Copy-Item -Path "$Source\*" -Destination $Dest -Recurse -Force
     }
 }
 
-# 2. Sync Agents & Workflows
-$SourceAgents = "shared/agents"
-$DestAgents = @(".agent/agents", "output/shared/agents")
-
-if (Test-Path $SourceAgents) {
-    foreach ($Target in $DestAgents) {
-        Write-Host "Syncing Agents to: $Target"
-        if (!(Test-Path $Target)) { New-Item -ItemType Directory -Path $Target -Force | Out-Null }
-        Copy-Item -Path "$SourceAgents\*" -Destination $Target -Recurse -Force
-    }
+# Sync Agents & Workflows
+if (Test-Path "shared/agents") {
+    Copy-Item -Path "shared/agents\*" -Destination ".agent/agents" -Recurse -Force
+}
+if (Test-Path "shared/workflows") {
+    Copy-Item -Path "shared/workflows\*" -Destination ".agent/workflows" -Recurse -Force
+    Copy-Item -Path "shared/workflows\*" -Destination ".github/workflows" -Recurse -Force
 }
 
-$SourceWorkflows = "shared/workflows"
-$DestWorkflows = @(".agent/workflows", ".github/workflows", "output/shared/workflows")
+# --- PHASE 2: Staging Mirror ---
+Write-Host "PHASE 2: Staging Mirror"
 
-if (Test-Path $SourceWorkflows) {
-    foreach ($Target in $DestWorkflows) {
-        Write-Host "Syncing Workflows to: $Target"
-        if (!(Test-Path $Target)) { New-Item -ItemType Directory -Path $Target -Force | Out-Null }
-        Copy-Item -Path "$SourceWorkflows\*" -Destination $Target -Recurse -Force
-    }
+$MirrorList = @(
+    @{ src = ".agent"; dest = "output/.agent" },
+    @{ src = ".github"; dest = "output/.github" },
+    @{ src = ".cursor"; dest = "output/.cursor" },
+    @{ src = ".kiro"; dest = "output/.kiro" },
+    @{ src = ".opencode"; dest = "output/.opencode" },
+    @{ src = ".vs"; dest = "output/.vs" },
+    @{ src = "shared"; dest = "output/shared" }
+)
+
+foreach ($entry in $MirrorList) {
+    Mirror-Directory $entry.src $entry.dest
 }
 
-Write-Host "Sync complete!" -ForegroundColor Green
+Write-Host "Sync and Mirror complete!" -ForegroundColor Green

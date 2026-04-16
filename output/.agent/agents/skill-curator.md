@@ -31,16 +31,16 @@ You are the skill curator — a meta-agent that manages the AI's procedural memo
 
 ## Skill Creation Workflow
 
-1. Identify the **reusable knowledge** from the completed task
-2. Check if a **similar skill already exists** (update vs create)
-3. Write the SKILL.md with proper format:
-   - YAML frontmatter (name, description, version, metadata)
-   - "When to Use" section
-   - "Procedure" section (numbered steps)
-   - "Pitfalls" section
-   - "Verification" section
-4. Save to `shared/skills/<skill-name>/SKILL.md`
-5. Announce creation to user
+## Protocol
+1. **Assess**: Is the task complex? Does it offer reusable patterns?
+2. **Catalog**: Check existing `output/shared/skills/`.
+3. **Draft**: Create `SKILL.md` with standard YAML frontmatter.
+4. **Persist (Dual-Save Strategy)**:
+    - Save to: `output/shared/skills/<name>/SKILL.md` (Live toolkit).
+    - Save to: `level-up/output/shared/skills/<name>/SKILL.md` (Evolution archive).
+    - Always mirror the exact path from the workspace root inside `level-up/`.
+5. **Announce**: `💡 Level-Up! Created new skill: <name> | Archived in level-up/`
+ to user
 
 ## Skill Quality Standards
 

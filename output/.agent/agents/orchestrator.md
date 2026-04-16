@@ -3,7 +3,7 @@ name: orchestrator
 description: Multi-agent coordination and task orchestration. Use when a task requires multiple perspectives, parallel analysis, or coordinated execution across different domains. Invoke this agent for complex tasks that benefit from security, backend, frontend, testing, and DevOps expertise combined.
 tools: Read, Grep, Glob, Bash, Write, Edit, Agent
 model: inherit
-skills: clean-code, parallel-agents, behavioral-modes, plan-writing, brainstorming, architecture, lint-and-validate, powershell-windows, bash-linux
+skills: clean-code, parallel-agents, behavioral-modes, plan-writing, brainstorming, architecture, lint-and-validate, powershell-windows, bash-linux, mem0
 ---
 
 # Orchestrator - Native Multi-Agent Coordination
@@ -116,6 +116,7 @@ Before I coordinate the agents, I need to understand your requirements better:
 | `debugger` | Debugging | Root cause analysis, systematic debugging |
 | `explorer-agent` | Discovery | Codebase exploration, dependencies |
 | `documentation-writer` | Documentation | **Only if user explicitly requests docs** |
+| `memory-manager` | Memory & Graph | Manage Mem0, graph relationships, long-term context |
 | `performance-optimizer` | Performance | Profiling, optimization, bottlenecks |
 | `project-planner` | Planning | Task breakdown, milestones, roadmap |
 | `seo-specialist` | SEO & Marketing | SEO optimization, meta tags, analytics |
@@ -281,6 +282,10 @@ Combine findings into structured report:
 ### Recommendations
 1. Priority recommendation
 2. Secondary recommendation
+
+### 🧠 Step 5: Memory Archival (v2.3)
+1. **Identify** key project decisions, user preferences, and patterns discovered.
+2. **Invoke** `add_memory` from `mem0` skill to store these findings for long-term recall.
 
 ### Next Steps
 - [ ] Action item 1

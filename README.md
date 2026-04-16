@@ -1,12 +1,12 @@
 # 🧰 Unified AI Agent Toolkit v2.3
 
 > **Giải pháp "Drop-in"** tích hợp AI Agent cho **6 IDE** phổ biến nhất.
-> Tự động đồng bộ tri thức, tự học và thống nhất trên mọi môi trường.
+> Tự động đồng bộ tri thức, tích hợp Graph Memory (Mem0) và thống nhất trên mọi môi trường.
 
 [![Version](https://img.shields.io/badge/version-2.3-blue)]()
 [![IDEs](https://img.shields.io/badge/IDEs-6-green)]()
-[![Skills](https://img.shields.io/badge/skills-322-orange)]()
-[![Agents](https://img.shields.io/badge/agents-59-purple)]()
+[![Skills](https://img.shields.io/badge/skills-323-orange)]()
+[![Agents](https://img.shields.io/badge/agents-60-purple)]()
 [![License](https://img.shields.io/badge/license-MIT-brightgreen)]()
 
 ---
@@ -39,18 +39,19 @@
     - [Level-Up Archive](#-level-up-archive)
     - [Trigger Conditions](#trigger-conditions)
     - [Agents liên quan](#agents-liên-quan)
-7.  [Shared — Single Source of Truth](#-shared--single-source-of-truth)
+7.  [Graph Memory (Mem0)](#-graph-memory-v23-integration)
+8.  [Shared — Single Source of Truth](#-shared--single-source-of-truth)
     - [Mục đích](#mục-đích)
     - [Tác động với từng IDE](#tác-động-với-từng-ide)
-8.  [Điểm mạnh & Hạn chế](#-điểm-mạnh--hạn-chế)
+9.  [Điểm mạnh & Hạn chế](#-điểm-mạnh--hạn-chế)
     - [Điểm mạnh](#-điểm-mạnh)
     - [Hạn chế](#-hạn-chế)
-9.  [Ví dụ thực tế](#-ví-dụ-thực-tế)
+10. [Ví dụ thực tế](#-ví-dụ-thực-tế)
     - [Orchestrate xây dựng API](#ví-dụ-1-orchestrate-xây-dựng-api-antigravitycursor)
     - [Debug lỗi C#](#ví-dụ-2-debug-lỗi-c-visual-studio)
     - [Kiro auto-steering](#ví-dụ-3-kiro-auto-steering)
     - [Self-Learning trong hành động](#ví-dụ-4-self-learning-trong-hành-động)
-10. [Kế hoạch nâng cấp](#-kế-hoạch-nâng-cấp)
+11. [Kế hoạch nâng cấp](#-kế-hoạch-nâng-cấp)
 
 ---
 
@@ -64,14 +65,15 @@ Mọi IDE đều chia sẻ cùng kiến thức nền tảng nhưng được chuy
 
 | Tính năng | Mô tả |
 |-----------|-------|
-| 🤖 **59 Agents chuyên biệt** | orchestrator, backend, frontend, security, debugger, skill-curator... |
-| 📚 **322 Skills** | Bao gồm 117 skills từ Hermes Agent (NousResearch) |
+| 🤖 **60 Agents chuyên biệt** | orchestrator, backend, frontend, security, debugger, memory-manager... |
+| 📚 **323 Skills** | Bao gồm 117 skills từ Hermes Agent và Mem0 integration |
 | 📏 **89 Rules** | Hỗ trợ **15 ngôn ngữ lập trình** |
+| 🧠 **Graph Memory (v2.3)** | Tích hợp Mem0 ghi nhớ ngữ cảnh lâu dài và quan hệ thực thể |
 | 🧠 **Self-Learning Protocol** | AI tự tạo skills mới từ kinh nghiệm (Hermes-inspired) |
 | 🆙 **Level-Up Archive** | Tự động lưu trữ tiến hóa AI vào thư mục riêng để quản lý |
 | 🔒 **OWASP Top 10** | Tích hợp sẵn trong `security-auditor` |
 | 🎯 **C#/.NET first-class** | Clean Architecture, EF Core, xUnit, Minimal API |
-| 📦 **Zero-Config** | Copy-Paste là hoạt động ngay lập tức |
+| 📦 **Zero-Config** | Mirror-Sync hoàn hảo cho 6 IDE folders |
 
 ---
 
@@ -92,7 +94,7 @@ Mọi IDE đều chia sẻ cùng kiến thức nền tảng nhưng được chuy
 
 ```mermaid
 graph LR
-    A[1. Kiểm kê<br/>Thu thập 6 nguồn] --> B[2. Loại trùng<br/>241→59 agents<br/>1753→322 skills]
+    A[1. Kiểm kê<br/>Thu thập 6 nguồn] --> B[2. Loại trùng<br/>241→60 agents<br/>1753→323 skills]
     B --> C[3. Phân loại<br/>10 danh mục chuẩn<br/>15 ngôn ngữ]
     C --> D[4. Tạo SSoT<br/>shared/ folder<br/>Bản đầy đủ nhất]
     D --> E[5. Adapt IDE<br/>Transform format<br/>cho 6 IDE]
@@ -101,8 +103,8 @@ graph LR
 | Bước | Input | Output | Tỷ lệ giảm |
 |------|:---:|:---:|:---:|
 | Kiểm kê | 6 repos | ~2000 files | — |
-| Loại trùng | 241 agents | **59 agents** | -75% |
-| Loại trùng | 1753 skills | **322 skills** | -82% |
+| Loại trùng | 241 agents | **60 agents** | -75% |
+| Loại trùng | 1753 skills | **323 skills** | -82% |
 | Loại trùng | 189 rules | **89 rules** | -53% |
 | Phân loại | — | 10 categories, 15 langs | — |
 | Tạo SSoT | — | `shared/` folder | — |
@@ -118,8 +120,8 @@ graph LR
 output/
 │
 ├── shared/                    ← 🧠 Single Source of Truth (KHÔNG IDE nào đọc trực tiếp)
-│   ├── agents/     (59 files) ← Tất cả agent definitions
-│   ├── skills/    (322 dirs)  ← Tất cả skills (SKILL.md format)
+│   ├── agents/     (60 files) ← Tất cả agent definitions
+│   ├── skills/    (323 dirs)  ← Tất cả skills (SKILL.md format)
 │   ├── rules/      (89 files) ← Rules theo ngôn ngữ (15 thư mục)
 │   ├── workflows/  (11 files) ← Workflow definitions
 │   └── hooks/       (4 files) ← Hook scripts (typecheck, quality-gate...)
@@ -143,7 +145,7 @@ output/
 ├── AGENTS.md                  ← Root config cho Kiro/OpenCode (15 agents)
 ├── hermes-config.yaml.example ← Cấu hình cho Hermes Agent
 ├── README.md                  ← 📄 Tài liệu này
-└── PLAN_UPDATE.md             ← 📅 Lộ trình nâng cấp tương lai
+└── PLAN_UPDATE.md             ← 📅 Lộ trình nâng cấp tương lai (Updated v2.3)
 ```
 
 ### Chi tiết từng folder IDE
@@ -153,8 +155,8 @@ output/
 
 ```
 .agent/
-├── agents/     (59 files)  ← orchestrator.md, backend-specialist.md...
-├── skills/    (322 dirs)   ← Mỗi skill = 1 folder chứa SKILL.md
+├── agents/     (60 files)  ← orchestrator.md, backend-specialist.md...
+├── skills/    (323 dirs)   ← Mỗi skill = 1 folder chứa SKILL.md
 ├── workflows/  (11 files)  ← brainstorm.md, create.md, debug.md...
 └── hooks/       (4 files)  ← hooks.json, run-hook.cmd, session-start...
 ```
@@ -166,7 +168,7 @@ output/
 ```
 .cursor/
 ├── rules/      (89 files)  ← Phân theo ngôn ngữ (csharp/, typescript/...)
-└── skills/    (322 dirs)   ← Full sync từ shared/
+└── skills/    (323 dirs)   ← Full sync từ shared/
 ```
 </details>
 
@@ -175,7 +177,7 @@ output/
 
 ```
 .github/
-├── skills/     (322 dirs)  ← Full Sync từ shared/
+├── skills/     (323 dirs)  ← Full Sync từ shared/
 ├── workflows/  (11 files)  ← brainstorming.md, creative.md...
 └── copilot-instructions.md  ← Hướng dẫn chuẩn hóa cho Copilot
 ```
@@ -226,8 +228,8 @@ output/
 | Metric | Số lượng |
 |--------|:---:|
 | Toolkits gốc đã hợp nhất | **6** |
-| Agents chuyên biệt | **59** |
-| Skills (kỹ năng) | **322** |
+| Agents chuyên biệt | **60** |
+| Skills (kỹ năng) | **323** |
 | Rules (quy tắc) | **89** |
 | Workflows | **11** |
 | Hooks | **4** |
@@ -237,9 +239,9 @@ output/
 
 | IDE | Folder | Agents | Skills | Rules/Steering | Root Config | Self-Learning |
 |-----|--------|:---:|:---:|:---:|:---:|:---:|
-| **Antigravity** | `.agent/` | 59 | 322 | — | `GEMINI.md` | ✅ |
-| **Cursor** | `.cursor/` | — | 322 | 89 | `.cursorrules` | ✅ |
-| **VS Code** | `.github/` | 16 | 322 | — | `copilot-instructions.md` | ✅ |
+| **Antigravity** | `.agent/` | 60 | 323 | — | `GEMINI.md` | ✅ |
+| **Cursor** | `.cursor/` | — | 323 | 89 | `.cursorrules` | ✅ |
+| **VS Code** | `.github/` | 16 | 323 | — | `copilot-instructions.md` | ✅ |
 | **Kiro** | `.kiro/` | — | — | 8 | `AGENTS.md` | ✅ |
 | **OpenCode** | `.opencode/` | — | — | — | `AGENTS.md` + `opencode.json` | ✅ |
 | **Visual Studio** | `.vs/` | — | — | — | `copilot-instructions.md` | ✅ |
@@ -296,7 +298,7 @@ Copy-Item "output/GEMINI.md" "your-project/"
 /debug Phân tích tại sao API trả về 500
 ```
 
-**Tính năng riêng:** 59 agents, 322 skills, 11 workflows, 4 hooks.
+**Tính năng riêng:** 60 agents, 323 skills, 11 workflows, 4 hooks.
 
 ---
 
@@ -309,7 +311,7 @@ Copy-Item "output/.cursorrules" "your-project/"
 # Cursor tự động đọc .cursorrules + rules/. Mở Chat hoặc Composer để dùng.
 ```
 
-**Tính năng riêng:** 89 language-specific rules, 322 skills.
+**Tính năng riêng:** 89 language-specific rules, 323 skills.
 
 ---
 
@@ -320,7 +322,7 @@ Copy-Item "output/.cursorrules" "your-project/"
 Copy-Item -Path "output/.github" -Destination "your-project/" -Recurse
 
 # Gọi agents: @orchestrator, @backend-specialist...
-# AI tự động truy cập 322 skills trong .github/skills/
+# AI tự động truy cập 323 skills trong .github/skills/
 ```
 
 **Tính năng riêng:** Tự động kích hoạt, truy cập full skills qua path native `.github/`.
@@ -373,7 +375,7 @@ Copy-Item -Path "output/.vs" -Destination "your-project/" -Recurse
 Copy-Item "output/hermes-config.yaml.example" "$HOME/.hermes/config.yaml"
 
 # Chỉnh sửa external_dirs trong config để trỏ vào shared/skills/
-# → Hermes dùng ngay 322 skills mà không cần import gì thêm!
+# → Hermes dùng ngay 323 skills mà không cần import gì thêm!
 ```
 
 ---
@@ -446,8 +448,25 @@ Copy-Item -Path "level-up/*" -Destination "." -Recurse -Force
 | Agent | Vai trò |
 |-------|---------|
 | **`skill-curator`** | Meta-agent quản lý vòng đời skill |
+| **`memory-manager`** | Chuyên gia Mem0 & Knowledge Graph |
 | **`self-learning-loop`** | Protocol kỹ thuật tạo skill mới |
 | **`skill-evolution`** | Protocol cải thiện skill có sẵn |
+
+---
+
+## 🧠 Graph Memory (v2.3 Integration)
+
+Đây là cốt lõi của phiên bản v2.3, cho phép AI Agent không chỉ làm việc hiệu quả trong phiên mà còn ghi nhớ sở thích và quan hệ giữa các tệp/logic xuyên suốt lịch sử dự án.
+
+### Tác động của Mem0
+- **Long-term Context**: Nhớ được user thích Clean Architecture hơn Repository pattern.
+- **Faster Recall**: Tìm thấy logic xử lý authentication cũ mà không cần lội ngược conversation logs.
+- **Graph Relations**: Hiểu được `Agent A` đã thay đổi `File B` phục vụ `Feature C`.
+
+### Cách kích hoạt
+1. Cài đặt Mem0 MCP: `npx -y @mem0/mcp-server`
+2. Cấu hình `MEMO_API_KEY` (nếu dùng Cloud) hoặc local instance.
+3. Agent `orchestrator` sẽ tự động phối hợp với `memory-manager` để lưu trữ tri thức sau mỗi task.
 
 ---
 
@@ -459,8 +478,8 @@ Copy-Item -Path "level-up/*" -Destination "." -Recurse -Force
 
 ```
 shared/
-├── agents/     (59)   ← Nguồn gốc của .agent/agents/, .vscode/agents/...
-├── skills/    (322)   ← Nguồn gốc của .agent/skills/, .cursor/skills/...
+├── agents/     (60)   ← Nguồn gốc của .agent/agents/, .vscode/agents/...
+├── skills/    (323)   ← Nguồn gốc của .agent/skills/, .cursor/skills/...
 ├── rules/      (89)   ← Nguồn gốc của .cursor/rules/, .kiro/steering/...
 ├── workflows/  (11)   ← Nguồn gốc của .agent/workflows/
 └── hooks/       (4)   ← Nguồn gốc của .agent/hooks/
@@ -582,8 +601,8 @@ Chi tiết tại [PLAN_UPDATE.md](PLAN_UPDATE.md).
 
 | Version | Timeline | Key Feature |
 |---------|----------|-------------|
-| **v2.2** ✅ | Hiện tại | Hermes integration, Self-Learning, Level-Up Archive, 322 skills |
-| **v2.3** | 1-2 tháng | Auto-sync script, Level-Up Merger, Slim Mode |
+| **v2.2** ✅ | Q1 2026 | Hermes integration, Self-Learning, 322 skills |
+| **v2.3** ✅ | Hiện tại | **Graph Memory (Mem0)**, Mirror-Sync v1.2.1, Parallel Agents |
 | **v3.0** | 3-6 tháng | MCP Server, Template Generator (`npx create-unified-toolkit`) |
 | **v4.0** | 6-12 tháng | Self-Learning v2, Community Marketplace, Cloud Sync |
 

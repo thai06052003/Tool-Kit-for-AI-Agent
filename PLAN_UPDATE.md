@@ -1,13 +1,13 @@
 # 📋 PLAN_UPDATE — Kế hoạch nâng cấp Unified AI Toolkit
 
 > Lộ trình phát triển, ưu tiên theo phiên bản.
-> Cập nhật: 2026-04-14 | Tác giả: Xuan Thai
+> Cập nhật: 2026-04-16 | Tác giả: Xuan Thai & Antigravity AI
 
 ---
 
-## 🏷️ Phiên bản hiện tại: v2.2 (Evolutionary)
+## 🏷️ Phiên bản hiện tại: v2.3 (Graph Memory)
 
-### ✅ Đã hoàn thành
+### ✅ Đã hoàn thành (v2.2 & v2.3)
 
 | Phase | Nội dung | Trạng thái |
 |-------|----------|:---:|
@@ -15,9 +15,10 @@
 | Self-Learning | Giao thức tự học tự động hoàn thiện kỹ năng | ✅ |
 | **Level-Up Archive** | **Mirror lưu trữ tiến hóa AI vào `level-up/`** | ✅ |
 | VS Code Agents | 16 Custom Agents chuyên biệt | ✅ |
-| Dual-Save | Ghi kiến thức mới vào bộ kit và khu vực archive | ✅ |
-| Vietnamese Lang | Thống nhất comment/explain bằng tiếng Việt | ✅ |
-| Git Tag v2.2 | Đóng gói phiên bản và push lên GitHub | ✅ |
+| Graph Memory | **Tích hợp Mem0 (Cloud/Local) qua MCP** | ✅ |
+| Mirror-Sync | **Cơ chế Mirror-Directory v1.2.1 hoàn hảo** | ✅ |
+| Parallel Agents | **Nâng cấp orchestrator điều phối đa agent** | ✅ |
+| Git Tag v2.3 | Đóng gói phiên bản và push lên GitHub | ✅ |
 
 ---
 
@@ -201,7 +202,7 @@ graph TD
 
 ---
 
-> **📅 Cập nhật**: 2026-04-14
-> **👤 Tác giả**: Xuan Thai
-> **🔖 Phiên bản hiện tại**: v2.2 (Evolutionary) — Tag `v2.2-evolution`
-> **🎯 Mục tiêu tiếp theo**: v2.3 — External Graph Memory via Mem0 MCP
+> **📅 Cập nhật**: 2026-04-16
+> **👤 Tác giả**: Xuan Thai & Antigravity AI
+> **🔖 Phiên bản hiện tại**: v2.3 (Graph Memory) — Tag `v2.3-graph-memory`
+> **🎯 Mục tiêu tiếp theo**: v3.0 — Autonomous Agent OS (MCP Ecosystem)
