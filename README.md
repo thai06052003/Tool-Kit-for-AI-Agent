@@ -508,6 +508,21 @@ shared/
 
 ---
 
+## 🛠️ Automation & Utilities (v2.3)
+
+Để duy trì tính nhất quán và thúc đẩy khả năng tự tiến hóa của bộ Toolkit, bạn có thể sử dụng các script sau trong thư mục `scripts/`:
+
+| Script | Tính năng | Cách dùng |
+| :--- | :--- | :--- |
+| **`sync_all.ps1`** | Đồng bộ hóa toàn cầu (SSoT -> IDEs -> Output) | `./scripts/sync_all.ps1` |
+| **`merge-levelup.ps1`** | Hợp nhất kiến thức AI tự học được vào bộ kit gốc | `./scripts/merge-levelup.ps1` |
+| **`memory-report.ps1`** | Yêu cầu Agent tạo báo cáo về bộ nhớ Graph (Mem0) | `./scripts/memory-report.ps1` |
+
+> [!TIP]
+> Hãy chạy `merge-levelup.ps1` định kỳ để làm giàu bộ Toolkit của bạn bằng những kinh nghiệm thực tế mà AI đã đúc rút được trong các phiên làm việc trước đó.
+
+---
+
 ## 💪 Điểm mạnh & Hạn chế
 
 ### 🌟 Điểm mạnh

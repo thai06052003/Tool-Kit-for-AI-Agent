@@ -63,9 +63,11 @@ metadata:
 <How to confirm it worked>
 ```
 
-### Step 3: Save Location
-
-- **Hermes**: `~/.hermes/skills/<category>/<skill-name>/SKILL.md`
+3. **Draft & Save (Level-Up Protocol)**:
+   - Write the `SKILL.md` file.
+   - Save to: `output/shared/skills/<name>/SKILL.md`
+   - **MANDATORY MIRROR**: Mirror the save to `level-up/output/shared/skills/<name>/SKILL.md`.
+   - **Purpose**: This ensures `level-up/` preserves all AI-generated advancements with correct paths for easy root-merging.
 - **Antigravity/Cursor/VS Code**: `shared/skills/<skill-name>/SKILL.md`
 - **IDE-agnostic**: Save in the project's skill directory
 

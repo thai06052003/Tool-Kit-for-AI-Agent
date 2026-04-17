@@ -37,7 +37,7 @@ Write-Host "PHASE 1: SSoT Distribution"
 
 # Sync Skills
 $Source = "shared/skills"
-$Destinations = @(".agent/skills", ".github/skills")
+$Destinations = @(".agent/skills", ".github/skills", ".cursor/skills")
 foreach ($Dest in $Destinations) {
     if (Test-Path $Source) {
         if (!(Test-Path $Dest)) { New-Item -ItemType Directory -Path $Dest -Force | Out-Null }

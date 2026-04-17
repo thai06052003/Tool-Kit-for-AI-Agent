@@ -112,15 +112,15 @@ Sau khi phân tích các giải pháp hàng đầu năm 2025–2026:
 |---|------|----------|
 | 3.1 | **Sơ đồ Mermaid tự động** | Agent tự vẽ sơ đồ quan hệ từ graph data hiện có |
 | 3.2 | **Graph Viewer** | Tuỳ chọn: Nhúng Neo4j Bloom hoặc dùng Mem0 Dashboard |
-| 3.3 | **Memory Report** | Lệnh `/memory-report` → xuất báo cáo toàn bộ knowledge graph |
+| 3.3 | **Memory Report** | Lệnh `/memory-report` → xuất báo cáo toàn bộ knowledge graph | ✅ Done |
 
 #### Phase 4: Automation & Slim Mode (Tuần 3-4) 🟡 MEDIUM
 | # | Bước | Chi tiết |
 |---|------|----------|
-| 4.1 | **Auto-sync Script** | PowerShell: `shared/` → auto-generate toàn bộ 6 IDE folders |
-| 4.2 | **Level-Up Merger** | Script tự động merge `level-up/` vào bộ kit chính |
-| 4.3 | **Slim Mode** | Template chỉ ~30 skills cốt lõi cho dự án nhỏ |
-| 4.4 | **Git Tag v2.3** | Đóng gói phiên bản, cập nhật README + PLAN_UPDATE |
+| 4.1 | **Auto-sync Script** | PowerShell: `shared/` → auto-generate toàn bộ 6 IDE folders | ✅ Done |
+| 4.2 | **Level-Up Merger** | Script tự động merge `level-up/` vào bộ kit chính | ✅ Done |
+| 4.3 | **Slim Mode** | Template chỉ ~30 skills cốt lõi cho dự án nhỏ | ✅ Done |
+| 4.4 | **Git Tag v2.3** | Đóng gói phiên bản, cập nhật README + PLAN_UPDATE | ✅ Done |
 
 ---
 
