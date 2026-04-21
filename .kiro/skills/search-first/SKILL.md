@@ -1,12 +1,7 @@
 ---
 name: search-first
-description: >
-  Research-before-coding workflow. Search for existing tools, libraries, and
-  patterns before writing custom code. Systematizes the "search for existing
-  solutions before implementing" approach. Use when starting new features or
-  adding functionality.
-metadata:
-  origin: ECC
+description: Research-before-coding workflow. Search for existing tools, libraries, and patterns before writing custom code. Invokes the researcher agent.
+origin: ECC
 ---
 
 # /search-first — Research Before You Code
@@ -66,24 +61,25 @@ Use this skill when:
 
 Before writing a utility or adding functionality, mentally run through:
 
-0. Does this already exist in the repo? → Search through relevant modules/tests first
+0. Does this already exist in the repo? → `rg` through relevant modules/tests first
 1. Is this a common problem? → Search npm/PyPI
-2. Is there an MCP for this? → Check MCP configuration and search
-3. Is there a skill for this? → Check available skills
+2. Is there an MCP for this? → Check `~/.claude/settings.json` and search
+3. Is there a skill for this? → Check `~/.claude/skills/`
 4. Is there a GitHub implementation/template? → Run GitHub code search for maintained OSS before writing net-new code
 
-### Full Mode (subagent)
+### Full Mode (agent)
 
-For non-trivial functionality, delegate to a research-focused subagent:
+For non-trivial functionality, launch the researcher agent:
 
 ```
-Invoke subagent with prompt:
-  "Research existing tools for: [DESCRIPTION]
-   Language/framework: [LANG]
-   Constraints: [ANY]
+Task(subagent_type="general-purpose", prompt="
+  Research existing tools for: [DESCRIPTION]
+  Language/framework: [LANG]
+  Constraints: [ANY]
 
-   Search: npm/PyPI, MCP servers, skills, GitHub
-   Return: Structured comparison with recommendation"
+  Search: npm/PyPI, MCP servers, Claude Code skills, GitHub
+  Return: Structured comparison with recommendation
+")
 ```
 
 ## Search Shortcuts by Category
@@ -95,7 +91,7 @@ Invoke subagent with prompt:
 - Pre-commit → `husky`, `lint-staged`, `pre-commit`
 
 ### AI/LLM Integration
-- Claude SDK → Check for latest docs
+- Claude SDK → Context7 for latest docs
 - Prompt management → Check MCP servers
 - Document processing → `unstructured`, `pdfplumber`, `mammoth`
 
@@ -163,11 +159,3 @@ Result: 1 package + 1 schema file, no custom validation logic
 - **Ignoring MCP**: Not checking if an MCP server already provides the capability
 - **Over-customizing**: Wrapping a library so heavily it loses its benefits
 - **Dependency bloat**: Installing a massive package for one small feature
-
-## When to Use This Skill
-
-- Starting new features
-- Adding dependencies or integrations
-- Before writing utilities or helpers
-- When evaluating technology choices
-- Planning architecture decisions

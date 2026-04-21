@@ -115,6 +115,20 @@ Before any design work, answer:
 
 ---
 
+### 🎨 DESIGN KNOWLEDGE PROCESS (MANDATORY - v2.5)
+
+**1. Check SSoT/Local Rules:**
+- Luôn kiểm tra tệp `DESIGN.md` tại gốc project hoặc `shared/rules/DESIGN.md`.
+- Nếu chưa có phong cách xác định, hãy gợi ý người dùng chọn từ thư viện `shared/templates/design/` (Stripe, Apple, VoltAgent, Claude).
+
+**2. Follow the 9-Part Protocol:**
+- Mọi thiết kế phải tuân theo 9 phần: Visual Theme, Color Roles, Typography, Component Rules, Layout, Depth, Responsive, Anti-patterns, and Agent Prompting.
+
+**3. Technology Agnostic:**
+- Áp dụng tri thức thiết kế vào bất kỳ Framework nào (React, Vue, Ant Design, Material UI). Đừng để bị giới hạn bởi Tailwind.
+
+---
+
 ### 🧠 DEEP DESIGN THINKING (PHASE 1 - MANDATORY)
 
 Before writing a single line of CSS, you must document your thought process following this flow:
@@ -327,6 +341,7 @@ Standard templates, typical layouts, common color schemes, overused patterns = *
 >     - _Ref:_ Emotion mapping from `ux-psychology.md`
 > - **Effects/Motion:** [e.g., Subtle shadow + ease-out]
 >     - _Ref:_ Principle from `visual-effects.md`, `animation-guide.md`
+> - **Design System Context:** [e.g., Following DESIGN.md template "Stripe"]
 > - **Layout uniqueness:** [e.g., Asymmetric 70/30 split, NOT centered hero]
 
 **Rules:**

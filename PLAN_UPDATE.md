@@ -5,7 +5,7 @@
 
 ---
 
-## 🏷️ Phiên bản hiện tại: v2.3 (Graph Memory)
+## 🏷️ Phiên bản hiện tại: v2.4 (Horizon Integration)
 
 ### ✅ Đã hoàn thành (v2.2 & v2.3)
 
@@ -16,9 +16,8 @@
 | **Level-Up Archive** | **Mirror lưu trữ tiến hóa AI vào `level-up/`** | ✅ |
 | VS Code Agents | 16 Custom Agents chuyên biệt | ✅ |
 | Graph Memory | **Tích hợp Mem0 (Cloud/Local) qua MCP** | ✅ |
-| Mirror-Sync | **Cơ chế Mirror-Directory v1.2.1 hoàn hảo** | ✅ |
-| Parallel Agents | **Nâng cấp orchestrator điều phối đa agent** | ✅ |
-| Git Tag v2.3 | Đóng gói phiên bản và push lên GitHub | ✅ |
+| Horizon Integration | **Tích hợp VoltAgent (Supervisor, DESIGN.md)** | ✅ |
+| Git Tag v2.4 | Đóng gói phiên bản và push lên GitHub | ✅ |
 
 ---
 

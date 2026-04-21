@@ -508,7 +508,23 @@ shared/
 
 ---
 
-## 🛠️ Automation & Utilities (v2.3)
+## 🏛️ IDE Capability Matrix (Độ tương thích)
+
+Phần này giúp bạn hiểu rõ mỗi bộ kit có thể làm được những gì trong từng IDE cụ thể.
+
+| Tính năng | Antigravity | Cursor | VS Code | Kiro/OpenCode | Visual Studio |
+| :--- | :---: | :---: | :---: | :---: | :---: |
+| **Multi-Agent (60+)** | ✅ Full | ❌ (1) | ❌ (1) | ⚠️ (Limited) | ❌ |
+| **Skills Library (531)**| ✅ 100% | ✅ 100% | ✅ 100% | ⚠️ (Subset) | ❌ (Instr) |
+| **Custom Rules (.md)** | ✅ | ✅ | ✅ | ✅ | ✅ |
+| **Supervisor Model** | ✅ | ⚠️ (Rule) | ⚠️ (Rule) | ❌ | ❌ |
+| **Auto-Sync** | ✅ | ✅ | ✅ | ✅ | ✅ |
+
+*(1): Có thể gọi qua scripts hoặc dùng Orchestrator workflow thủ công.*
+
+---
+
+## 🛠️ Automation & Utilities (v2.4)
 
 Để duy trì tính nhất quán và thúc đẩy khả năng tự tiến hóa của bộ Toolkit, bạn có thể sử dụng các script sau trong thư mục `scripts/`:
 
@@ -618,6 +634,7 @@ Chi tiết tại [PLAN_UPDATE.md](PLAN_UPDATE.md).
 |---------|----------|-------------|
 | **v2.2** ✅ | Q1 2026 | Hermes integration, Self-Learning, 322 skills |
 | **v2.3** ✅ | Hiện tại | **Graph Memory (Mem0)**, Mirror-Sync v1.2.1, Parallel Agents |
+| **v2.4** ✅ | **Hôm nay** | **Horizon Integration**: Supervisor Agent, CROSS-IDE Parity, `DESIGN.md` |
 | **v3.0** | 3-6 tháng | MCP Server, Template Generator (`npx create-unified-toolkit`) |
 | **v4.0** | 6-12 tháng | Self-Learning v2, Community Marketplace, Cloud Sync |
 
