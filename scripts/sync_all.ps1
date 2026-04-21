@@ -37,21 +37,29 @@ Write-Host "PHASE 1: SSoT Distribution"
 
 # Sync Skills
 $Source = "shared/skills"
-$Destinations = @(".agent/skills", ".github/skills", ".cursor/skills")
+$Destinations = @(".agent/skills", ".github/skills", ".cursor/skills", ".kiro/skills")
 foreach ($Dest in $Destinations) {
-    if (Test-Path $Source) {
-        if (!(Test-Path $Dest)) { New-Item -ItemType Directory -Path $Dest -Force | Out-Null }
-        Copy-Item -Path "$Source\*" -Destination $Dest -Recurse -Force
-    }
+    Mirror-Directory $Source $Dest
 }
 
-# Sync Agents & Workflows
+# Sync Agents
 if (Test-Path "shared/agents") {
-    Copy-Item -Path "shared/agents\*" -Destination ".agent/agents" -Recurse -Force
+    Mirror-Directory "shared/agents" ".agent/agents"
+    Mirror-Directory "shared/agents" ".kiro/agents"
 }
+
+# Sync Workflows
 if (Test-Path "shared/workflows") {
-    Copy-Item -Path "shared/workflows\*" -Destination ".agent/workflows" -Recurse -Force
-    Copy-Item -Path "shared/workflows\*" -Destination ".github/workflows" -Recurse -Force
+    Mirror-Directory "shared/workflows" ".agent/workflows"
+}
+
+# Sync Design Templates
+if (Test-Path "shared/templates/design") {
+    $SourceTemplate = "shared/templates/design"
+    $DestinationsTemplate = @(".agent/templates/design", ".github/templates/design", ".cursor/templates/design", ".kiro/templates/design")
+    foreach ($Dest in $DestinationsTemplate) {
+        Mirror-Directory $SourceTemplate $Dest
+    }
 }
 
 # --- PHASE 2: Staging Mirror ---
