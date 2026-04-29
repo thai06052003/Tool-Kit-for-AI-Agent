@@ -39,3 +39,5 @@ Thumbs.db
 *.db
 *.db-shm
 *.db-wal
+hermes-config.yaml
+hermes-config copy.yaml

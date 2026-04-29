@@ -79,4 +79,36 @@ foreach ($entry in $MirrorList) {
     Mirror-Directory $entry.src $entry.dest
 }
 
+# --- PHASE 3: Root Files Synchronization ---
+Write-Host "PHASE 3: Root Files Synchronization"
+
+$RootFiles = @(
+    "README.md",
+    "GEMINI.md",
+    "AGENTS.md",
+    "PLAN_UPDATE.md",
+    ".cursorrules",
+    "hermes-config.yaml.example",
+    "user-manual-claud-mem.md"
+)
+
+foreach ($file in $RootFiles) {
+    if (Test-Path $file) {
+        Copy-Item -Path $file -Destination "output/" -Force
+        Write-Host "Copied root file: $file"
+    }
+}
+
+$RootFolders = @(
+    "docs",
+    "level-up",
+    ".vscode"
+)
+
+foreach ($folder in $RootFolders) {
+    if (Test-Path $folder) {
+        Mirror-Directory $folder "output/$folder"
+    }
+}
+
 Write-Host "Sync and Mirror complete!" -ForegroundColor Green

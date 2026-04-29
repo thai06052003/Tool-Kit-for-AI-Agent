@@ -368,15 +368,27 @@ Copy-Item -Path "output/.vs" -Destination "your-project/" -Recurse
 
 ---
 
-### 7. Hermes Agent (Bonus)
+### 7. Hermes Agent (Đã hỗ trợ Qwen & Nhiều Provider Khác)
+
+Toolkit giờ đây đã tích hợp sâu và nâng cấp `hermes-agent` để hỗ trợ trực tiếp các API Key của **Qwen**, **Gemini**, **Mistral**, **DeepSeek**, v.v. mà không cần cấu hình phức tạp qua CLI.
+
+**Cách thiết lập:**
 
 ```powershell
-# Copy template config:
+# 1. Khai báo API Key vào môi trường (hoặc đặt trong file .env)
+$env:QWEN_API_KEY="sk-qwen-key-cua-ban"
+# (Hoặc: DASHSCOPE_API_KEY, GEMINI_API_KEY, DEEPSEEK_API_KEY, MISTRAL_API_KEY)
+
+# 2. Copy template config cho Hermes:
 Copy-Item "output/hermes-config.yaml.example" "$HOME/.hermes/config.yaml"
 
-# Chỉnh sửa external_dirs trong config để trỏ vào shared/skills/
-# → Hermes dùng ngay 323 skills mà không cần import gì thêm!
+# 3. Chỉnh sửa external_dirs trong ~/.hermes/config.yaml để trỏ vào thư mục shared/skills/ của bạn
+# → Hermes sẽ nhận ngay 323 skills mà không cần import gì thêm!
 ```
+
+> [!TIP]
+> **Sử dụng Qwen cho Agent:**
+> Do đã tích hợp trực tiếp, bạn chỉ cần cấu hình `QWEN_API_KEY`, hệ thống sẽ tự động điều hướng các lời gọi mô hình về URL chuẩn của Qwen (`https://dashscope.aliyuncs.com/compatible-mode/v1`) và sử dụng model `qwen-plus` làm mặc định cho các auxiliary tasks (như memory flush, summary).
 
 ---
 

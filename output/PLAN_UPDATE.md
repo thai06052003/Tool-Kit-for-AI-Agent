@@ -1,13 +1,13 @@
 # 📋 PLAN_UPDATE — Kế hoạch nâng cấp Unified AI Toolkit
 
 > Lộ trình phát triển, ưu tiên theo phiên bản.
-> Cập nhật: 2026-04-14 | Tác giả: Xuan Thai
+> Cập nhật: 2026-04-16 | Tác giả: Xuan Thai & Antigravity AI
 
 ---
 
-## 🏷️ Phiên bản hiện tại: v2.2 (Evolutionary)
+## 🏷️ Phiên bản hiện tại: v2.4 (Horizon Integration)
 
-### ✅ Đã hoàn thành
+### ✅ Đã hoàn thành (v2.2 & v2.3)
 
 | Phase | Nội dung | Trạng thái |
 |-------|----------|:---:|
@@ -15,9 +15,9 @@
 | Self-Learning | Giao thức tự học tự động hoàn thiện kỹ năng | ✅ |
 | **Level-Up Archive** | **Mirror lưu trữ tiến hóa AI vào `level-up/`** | ✅ |
 | VS Code Agents | 16 Custom Agents chuyên biệt | ✅ |
-| Dual-Save | Ghi kiến thức mới vào bộ kit và khu vực archive | ✅ |
-| Vietnamese Lang | Thống nhất comment/explain bằng tiếng Việt | ✅ |
-| Git Tag v2.2 | Đóng gói phiên bản và push lên GitHub | ✅ |
+| Graph Memory | **Tích hợp Mem0 (Cloud/Local) qua MCP** | ✅ |
+| Horizon Integration | **Tích hợp VoltAgent (Supervisor, DESIGN.md)** | ✅ |
+| Git Tag v2.4 | Đóng gói phiên bản và push lên GitHub | ✅ |
 
 ---
 
@@ -111,15 +111,15 @@ Sau khi phân tích các giải pháp hàng đầu năm 2025–2026:
 |---|------|----------|
 | 3.1 | **Sơ đồ Mermaid tự động** | Agent tự vẽ sơ đồ quan hệ từ graph data hiện có |
 | 3.2 | **Graph Viewer** | Tuỳ chọn: Nhúng Neo4j Bloom hoặc dùng Mem0 Dashboard |
-| 3.3 | **Memory Report** | Lệnh `/memory-report` → xuất báo cáo toàn bộ knowledge graph |
+| 3.3 | **Memory Report** | Lệnh `/memory-report` → xuất báo cáo toàn bộ knowledge graph | ✅ Done |
 
 #### Phase 4: Automation & Slim Mode (Tuần 3-4) 🟡 MEDIUM
 | # | Bước | Chi tiết |
 |---|------|----------|
-| 4.1 | **Auto-sync Script** | PowerShell: `shared/` → auto-generate toàn bộ 6 IDE folders |
-| 4.2 | **Level-Up Merger** | Script tự động merge `level-up/` vào bộ kit chính |
-| 4.3 | **Slim Mode** | Template chỉ ~30 skills cốt lõi cho dự án nhỏ |
-| 4.4 | **Git Tag v2.3** | Đóng gói phiên bản, cập nhật README + PLAN_UPDATE |
+| 4.1 | **Auto-sync Script** | PowerShell: `shared/` → auto-generate toàn bộ 6 IDE folders | ✅ Done |
+| 4.2 | **Level-Up Merger** | Script tự động merge `level-up/` vào bộ kit chính | ✅ Done |
+| 4.3 | **Slim Mode** | Template chỉ ~30 skills cốt lõi cho dự án nhỏ | ✅ Done |
+| 4.4 | **Git Tag v2.3** | Đóng gói phiên bản, cập nhật README + PLAN_UPDATE | ✅ Done |
 
 ---
 
@@ -201,7 +201,7 @@ graph TD
 
 ---
 
-> **📅 Cập nhật**: 2026-04-14
-> **👤 Tác giả**: Xuan Thai
-> **🔖 Phiên bản hiện tại**: v2.2 (Evolutionary) — Tag `v2.2-evolution`
-> **🎯 Mục tiêu tiếp theo**: v2.3 — External Graph Memory via Mem0 MCP
+> **📅 Cập nhật**: 2026-04-16
+> **👤 Tác giả**: Xuan Thai & Antigravity AI
+> **🔖 Phiên bản hiện tại**: v2.3 (Graph Memory) — Tag `v2.3-graph-memory`
+> **🎯 Mục tiêu tiếp theo**: v3.0 — Autonomous Agent OS (MCP Ecosystem)
