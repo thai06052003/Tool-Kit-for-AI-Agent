@@ -1,0 +1,61 @@
+# Hermes Agent Config Template
+# Copy to ~/.hermes/config.yaml and customize
+
+# Point Hermes to our shared skills as external directory
+skills:
+  external_dirs:
+    - ./shared/skills                    # Project-local shared skills
+    # - ~/.agents/skills                 # Global shared skills (optional)
+    # - ${TEAM_SKILLS_DIR}/skills        # Team shared skills (optional)
+
+custom_providers:
+  - id: "qwen"
+    base_url: "https://dashscope.aliyuncs.com/compatible-mode/v1"
+    # Bạn có thể trỏ thẳng vào biến môi trường bằng cú pháp ${TEN_BIEN}
+    api_key: "${QWEN_API_KEY}" 
+    
+# Model configuration (choose one)
+# model:
+#   provider: "qwen"       # Gọi lại id 'qwen' vừa khai báo ở trên
+#   model: "qwen-plus"     # Hoặc qwen-max, qwen-turbo tùy ý bạn
+
+# model:
+#   provider: nous       # Nous Portal
+#   model: hermes-3-llama-3.1-70b
+
+# model:
+#   provider: openrouter  # OpenRouter (200+ models)
+#   model: anthropic/claude-sonnet-4-20250514
+
+# model:
+#   provider: openai
+#   model: gpt-4o
+
+# Tools configuration
+tools:
+  enabled:
+    - terminal
+    - file_operations
+    - web_search
+    - skills
+    - memory
+
+# Memory settings
+memory:
+  enabled: true
+  auto_save: true
+  nudge_interval: 3       # Nudge to persist knowledge every 5 messages
+
+# Security
+security:
+  terminal:
+    require_approval: true     # Ask before running commands
+    allowed_commands:           # Auto-approve these patterns
+      - "dotnet build"
+      - "dotnet test"
+      - "dotnet format"
+      - "npm test"
+      - "npm run lint"
+      - "git status"
+      - "git diff"
+      - "git log"
