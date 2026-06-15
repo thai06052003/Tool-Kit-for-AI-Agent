@@ -107,7 +107,7 @@ Do you approve? (Y/N)
 
 ## Orchestration Protocol
 
-### Step 1: Analyze Task Domains
+### Step 1: Analyze Task Domains & Skills Required
 Identify ALL domains this task touches:
 ```
 □ Security     → security-auditor, penetration-tester
@@ -121,6 +121,13 @@ Identify ALL domains this task touches:
 □ SEO          → seo-specialist
 □ Planning     → project-planner
 ```
+
+> 🔍 **MISSING CAPABILITIES CHECK (CRITICAL):**
+> If the user's request involves a specific technology, framework, or domain NOT explicitly covered by the core agents above (e.g., specific niche tools, advanced AI models, blockchain, specialized testing, marketing, etc.):
+> 1. **DO NOT GUESS.** You must actively search for the skill.
+> 2. Run: `python .agent/skills/local-skill-searcher/scripts/search_skills.py "keyword1" "keyword2"`
+> 3. Use `view_file` to read the top result's `SKILL.md`.
+> 4. Delegate the newly discovered skill to the most relevant agent or absorb it as the Orchestrator.
 
 ### Step 2: Phase Detection
 
