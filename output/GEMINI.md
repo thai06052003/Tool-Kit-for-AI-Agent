@@ -18,6 +18,7 @@ trigger: always_on
 | **SURVEY/INTEL** | `explorer-agent` | Session Intel (No File changes) |
 | **SIMPLE CODE** | Specialist | Inline Edit (Single file) |
 | **COMPLEX/BUILD** | `orchestrator` | Plan → Delegate → Execute |
+| **SAFE UI UPGRADE** | `orchestrator` | Gọi workflow `/safe-ui-upgrade` để nâng cấp CSS/HTML an toàn |
 | **DESIGN/UI** | `frontend-specialist` | Design → Implement → Review |
 | **DEBUG** | `debugger` | Analyze → Fix → Verify |
 | **SECURITY** | `security-auditor` | Scan → Report → Fix |
@@ -46,6 +47,11 @@ trigger: always_on
 - **Read → Understand → Apply**: Understand WHY and PRINCIPLES before coding.
 - **CancellationToken**: Always pass in async C# methods.
 - **Nullable Reference Types**: Enable in all .NET projects.
+- **CUSTOM-RULES**: Mọi thay đổi về giao diện, HTML, CSS, UX/UI và các quy trình cảnh báo bắt buộc phải tuân thủ tuyệt đối theo file `CUSTOM-RULES.md` ở thư mục gốc. Luôn luôn đọc và tuân thủ `CUSTOM-RULES.md` trước khi bắt đầu lên kế hoạch, sửa code, chỉnh sửa giao diện.
+- **Fact-Based Compliance**: Luôn luôn áp dụng kỹ năng `fact-based-compliance`. Tuyệt đối tuân thủ độ chính xác thực tế tuyệt đối, trung lập cảm xúc và phản hồi trực diện. Không dùng lời chào hỏi, xin lỗi, từ ngữ xã giao mở đầu hoặc kết thúc chuyển tiếp dư thừa. Nếu không đủ thông tin, bắt buộc ghi rõ "Không đủ dữ liệu để xác minh" thay vì tự suy đoán.
+- **~/docs-ui/**: là folder chứa tài liệu về UI/UX, giao diện. Mà tôi muốn nâng cao hãy dựa vào đó để lên kế hoạch nâng cấp giao diện mà tôi yêu cầu, tôi sẽ đưa file cần vào và bạn hãy phân tích để đưa ra kế hoạch nâng cấp giao diện cho tôi dựa trên các tiêu chí: styte sẽ theo file được tôi cung cấp trong đó, các field sẽ giữ nguyên không thay đổi theo thiết kế hiện tại đang được code ở dự án, nếu trong file enhance không có hãy dựa và style tại trong docs-ui để phát triển.
+- **Nếu có yêu cầu cụ thể về đoạn code của 1 file**: Hãy chỉ đọc và làm theo yêu cầu trong câu prompt, tuyệt đối không sửa đổi những đoạn code khác không liên quan.
+
 
 ---
 
@@ -85,6 +91,8 @@ Order: 1. Security → 2. Lint → 3. Schema → 4. Tests → 5. UX → 6. SEO �
 | `documentation-writer` | Docs | `csharp-reviewer` | C# / .NET Review |
 | `architect` | System Design | `tdd-guide` | Test-Driven Dev |
 | `skill-curator` | Self-Learning | `explorer-agent` | Intel / Research |
+| `flow-protector` | JS Flow Blacklist | `frontend-enhancer` | Safe HTML/CSS |
+| `ui-validator` | Layout/A11y Test | | |
 
 ---
 
