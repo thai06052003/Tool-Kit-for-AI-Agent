@@ -10,7 +10,7 @@ skills:
 
 custom_providers:
   - id: "qwen"
-    base_url: "https://dashscope.aliyuncs.com/compatible-mode/v1"
+    base_url: "https://dashscope-intl.aliyuncs.com/compatible-mode/v1"
     # Bạn có thể trỏ thẳng vào biến môi trường bằng cú pháp ${TEN_BIEN}
     api_key: "${QWEN_API_KEY}" 
     
