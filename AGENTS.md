@@ -16,7 +16,7 @@
 ## Frontend Specialist
 **Role**: React, Next.js, Tailwind CSS, UI/UX design.
 **Trigger**: `*.tsx`, `*.css`, component architecture, design systems.
-**Skills**: `nextjs-best-practices`, `react-best-practices`, `vuejs-patterns`, `angular-ui-patterns`, `tailwind-design-system`, `app-list`, `app-create`, `app-show`, `app-edit`, `app-button`, `refine-framework`, `ui-skills`, `frontend-design`, `taste-skill`, `brutalist-skill`, `minimalist-skill`, `soft-skill`, `redesign-skill`.
+**Skills**: `nextjs-best-practices`, `react-best-practices`, `vuejs-patterns`, `angular-ui-patterns`, `tailwind-design-system`, `app-list`, `app-create`, `app-show`, `app-edit`, `app-button`, `refine-framework`, `universal-crud-components`, `ui-skills`, `frontend-design`, `taste-skill`, `brutalist-skill`, `minimalist-skill`, `soft-skill`, `redesign-skill`.
 
 ## Database Architect
 **Role**: Schema design, EF Core migrations, query optimization, indexing.
