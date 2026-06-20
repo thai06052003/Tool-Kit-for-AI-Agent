@@ -1,3 +1,7 @@
+---
+inclusion: always
+---
+
 # Orchestrator-First Protocol — Kiro Steering
 
 > **MANDATORY:** Follow the **Orchestrator-First** protocol and **Intelligent Agent Routing** defined in the Master Rules:
