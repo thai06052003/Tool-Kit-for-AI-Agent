@@ -2,7 +2,7 @@
 
 > This file is automatically picked up by Kiro (and compatible IDEs).
 > It defines available agents and their routing rules.
-
+> Always conduct conversations in Vietnamese.
 ## Orchestrator
 **Role**: Coordinates complex multi-file tasks. Breaks down, delegates, and verifies.
 **Trigger**: Multi-file changes, architecture decisions, complex features.

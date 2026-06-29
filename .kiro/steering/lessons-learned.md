@@ -15,6 +15,33 @@ This file captures project-specific patterns, coding preferences, common pitfall
 
 ---
 
+## Antigravity ↔ Kiro Format Translation
+
+### Agent `.md` frontmatter: 3 điểm cần normalize khi dịch từ Antigravity sang Kiro
+```
+# Antigravity (nguồn)        →  Kiro IDE (đích)
+tools: Read, Grep, Bash       →  tools: ["Read", "Grep", "Bash"]   # CSV → JSON array
+model: inherit                →  model: claude-sonnet-4-5           # map tường minh
+skills: a, b, c               →  (xoá khỏi frontmatter)            # Kiro không dùng trường này
+```
+Body markdown giữ nguyên — Kiro đọc giống Claude.
+
+### Workflows Antigravity → Steering Kiro
+- Mặc định: `inclusion: manual` (dùng khi cần, không tự nạp), nhưng `orchestrate` sẽ có `inclusion: always` (tự động nạp dù bất kể trường hợp nào)
+- Ngoại lệ: `/orchestrate` → `inclusion: auto` (luôn luôn nạp vì định nghĩa protocol đa-agent)
+- Prefix an toàn: dùng `workflow-` cho workflows, `antigravity-` cho rules, tránh đụng tên ECC
+
+### Non-destructive migration pattern
+Khi bổ sung Antigravity vào ECC Kiro hiện có: skip tên trùng thay vì ghi đè, dùng prefix để namespace riêng. ECC là nền tảng, Antigravity là layer bổ sung.
+
+### Migration tool task decomposition: PBT co-located with translators
+When speccing a migration/translation tool, place property-based tests (`*` optional tasks) immediately after the corresponding translator task — not in a separate testing section. This keeps the correctness contract co-located with the implementation (e.g., task 3.1 implements AgentTranslator, task 3.2 is its PBT P3 test). Integration test and CLI go last after all components are stable. Recommended wave order: Setup → Scanner → [Translator + PBT]×N → Writer → Pipeline + Idempotence → CLI → Strategies → Integration.
+
+### `NonDestructiveWriter` as single choke-point for skip/overwrite logic
+In any additive/non-destructive file operation tool, centralise the `if dest.exists(): skip` check in one writer class rather than inside each individual translator. This makes idempotence and non-destructive guarantees impossible to bypass regardless of which translator calls the writer, and gives a single place to audit or test the behavior.
+
+---
+
 ## Project-Specific Patterns
 
 *Document patterns unique to this project that the team should follow.*
